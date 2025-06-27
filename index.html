@@ -1,135 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>PacketWhisperer | Cybersecurity Portfolio</title>
   <style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #0f172a;
-    color: #f1f5f9;
-    margin: 0;
-    padding: 0;
-  }
-  .header {
-    background-color: #1e293b;
-    color: #f8fafc;
-    padding: 20px;
-    text-align: center;
-  }
-  .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-  }
-  .profile {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .profile img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 4px solid #334155;
-    margin-bottom: 10px;
-  }
-  .project {
-    background: #1e293b;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  }
-  a {
-    color: #38bdf8;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  .footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #94a3b8;
-  }
-</style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #1e293b;
+      color: #f8fafc;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 850px;
+      margin: auto;
+      padding: 20px;
+    }
+    .profile {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid #334155;
+      margin-bottom: 10px;
+    }
+    .project {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: #38bdf8;
+    }
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+    .contact-form label {
+      display: block;
+      margin: 8px 0 4px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #f1f5f9;
+    }
+    .contact-form button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #38bdf8;
+      color: #0f172a;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .contact-form button:hover {
+      background-color: #0ea5e9;
+    }
+    .social-buttons a {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 10px 15px;
+      background: #334155;
+      color: #f1f5f9;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .social-buttons a:hover {
+      background: #475569;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #94a3b8;
+    }
+  </style>
 </head>
 <body>
 
   <div class="header">
-    <h1>Hi, I'm Nhyira 👋</h1>
+    <h1>Hi, I'm PacketWhisperer 👋</h1>
     <p>Cybersecurity Enthusiast | Python Learner | Portfolio Projects</p>
   </div>
 
   <div class="container">
     <div class="profile">
-      <img src="nhyira.jpg" alt="PacketWhisperer's Profile Photo">
-      <p><strong>Email:</strong> nhyirayanney@gmail.com<br>
-         <strong>GitHub:</strong> <a href="https://github.com/PacketWhisperer" target="_blank">PacketWhisperer</a></p>
+      <img src="nhyira.jpg" alt="PacketWhisperer's Profile Photo" />
     </div>
 
     <div class="project">
-  <h2>👤 About Me</h2>
-  <p>I’m an aspiring cybersecurity analyst passionate about ethical hacking, network security, and automation with Python. I'm building hands-on projects to grow my skills and showcase my capabilities in offensive and defensive security.</p>
-</div>
-
-<div class="project">
-  <h2>🛠️ Skills</h2>
-  <ul>
-    <li>Python (Scripting, Automation)</li>
-    <li>Network Scanning (Nmap, Socket)</li>
-    <li>Vulnerability Detection</li>
-    <li>Linux & Terminal Basics</li>
-    <li>Git & GitHub</li>
-  </ul>
-</div>
-
-<div class="project">
-  <h2>🔗 Connect With Me</h2>
-  <p>
-    <strong>Email:</strong> nhyirayanney@gmail.com<br>
-    <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a><br>
-    <strong>GitHub:</strong> <a href="https://github.com/PacketWhisperer" target="_blank">github.com/PacketWhisperer</a>
-  </p>
-</div>
-
-  <div class="project">
-  <h2>📩 Contact Me</h2>
-  <form action="https://formspree.io/f/mrbkrzyz" method="POST">
-    <label for="name">Name:</label><br>
-    <input type="text" name="name" required><br><br>
-
-    <label for="email">Email:</label><br>
-    <input type="email" name="_replyto" required><br><br>
-
-    <label for="message">Message:</label><br>
-    <textarea name="message" rows="5" required></textarea><br><br>
-
-    <button type="submit">Send</button>
-  </form>
-</div>
-
-    <div class="project">
-      <h2>🔐 Password Strength Checker</h2>
-      <p>Checks if a password is strong or weak and gives advice to improve it.</p>
-      <a href="https://github.com/PacketWhisperer/password-checker" target="_blank">View on GitHub</a>
+      <h2>👤 About Me</h2>
+      <p>I’m an aspiring cybersecurity analyst passionate about ethical hacking, network security, and automation with Python. I'm building hands-on projects to grow my skills and showcase my capabilities in offensive and defensive security.</p>
     </div>
 
     <div class="project">
-      <h2>🕵️ Port Scanner</h2>
-      <p>Scans a range of ports on an IP address to detect open services.</p>
-      <a href="https://github.com/PacketWhisperer/port-scanner" target="_blank">View on GitHub</a>
+      <h2>🛠️ Skills</h2>
+      <ul>
+        <li>Python (Scripting, Automation)</li>
+        <li>Network Scanning (Nmap, Socket)</li>
+        <li>Vulnerability Detection</li>
+        <li>Linux & Terminal Basics</li>
+        <li>Git & GitHub</li>
+      </ul>
     </div>
 
     <div class="project">
-  <h2>🛡️ Web Vulnerability Scanner</h2>
-  <p>Scans a website for missing HTTP security headers that help protect against common attacks.</p>
-  <a href="https://github.com/PacketWhisperer/web-vulnerability-scanner" target="_blank">View on GitHub</a>
-</div>
+      <h2>🔗 Connect With Me</h2>
+      <div class="social-buttons">
+        <a href="mailto:nhyirayanney@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/nhyira-yanney-b19898178" target="_blank">LinkedIn</a>
+        <a href="https://github.com/PacketWhisperer" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <h2>📂 Projects</h2>
+
+      <p><strong>🔐 Password Strength Checker</strong> — Checks if a password is strong or weak and gives advice.<br>
+      <a href="https://github.com/PacketWhisperer/password-checker" target="_blank">View on GitHub</a></p>
+
+      <p><strong>🕵️ Port Scanner</strong> — Scans a range of ports on an IP address to detect open services.<br>
+      <a href="https://github.com/PacketWhisperer/port-scanner" target="_blank">View on GitHub</a></p>
+
+      <p><strong>🛡️ Web Vulnerability Scanner</strong> — Scans a website for missing HTTP security headers.<br>
+      <a href="https://github.com/PacketWhisperer/web-vulnerability-scanner" target="_blank">View on GitHub</a></p>
+    </div>
+
+    <div class="project">
+      <h2>📩 Contact Me</h2>
+      <form action="https://formspree.io/f/mrbkrzyz" method="POST" class="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="_replyto" required>
+
+        <label for="message">Message:</label>
+        <textarea name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
 
     <div class="footer">
-      <p>Made with ❤️ by Nhyira | Powered by GitHub Pages</p>
+      <p>Made with ❤️ by PacketWhisperer | Powered by GitHub Pages</p>
     </div>
   </div>
 
