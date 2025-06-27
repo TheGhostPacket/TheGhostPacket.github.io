@@ -10,6 +10,7 @@
       color: #f1f5f9;
       margin: 0;
       padding: 0;
+      scroll-behavior: smooth;
     }
     .header {
       background-color: #1e293b;
@@ -21,6 +22,7 @@
       max-width: 850px;
       margin: auto;
       padding: 20px;
+      animation: fadeIn 1s ease-in;
     }
     .profile {
       text-align: center;
@@ -32,6 +34,10 @@
       border-radius: 50%;
       border: 4px solid #334155;
       margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+    .profile img:hover {
+      transform: scale(1.1);
     }
     .project {
       background: #1e293b;
@@ -39,6 +45,10 @@
       border-radius: 10px;
       margin-bottom: 25px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .project:hover {
+      transform: translateY(-5px);
     }
     h2 {
       color: #38bdf8;
@@ -51,8 +61,12 @@
       text-decoration: underline;
     }
     ul {
-      list-style-type: square;
-      padding-left: 20px;
+      list-style-type: none;
+      padding-left: 0;
+    }
+    ul li::before {
+      content: "\1F539 ";
+      margin-right: 5px;
     }
     .contact-form label {
       display: block;
@@ -80,17 +94,20 @@
     .contact-form button:hover {
       background-color: #0ea5e9;
     }
-    .social-buttons a {
+    .social-buttons a,
+    .download-cv {
       display: inline-block;
-      margin-right: 10px;
+      margin: 10px 10px 0 0;
       padding: 10px 15px;
       background: #334155;
       color: #f1f5f9;
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
+      transition: background 0.3s ease;
     }
-    .social-buttons a:hover {
+    .social-buttons a:hover,
+    .download-cv:hover {
       background: #475569;
     }
     .footer {
@@ -98,6 +115,10 @@
       margin-top: 40px;
       font-size: 0.9em;
       color: #94a3b8;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -121,11 +142,33 @@
     <div class="project">
       <h2>🛠️ Skills</h2>
       <ul>
-        <li>Python (Scripting, Automation)</li>
-        <li>Network Scanning (Nmap, Socket)</li>
-        <li>Vulnerability Detection</li>
-        <li>Linux & Terminal Basics</li>
-        <li>Git & GitHub</li>
+        <li>🐍 Python (Scripting, Automation)</li>
+        <li>🌐 Network Scanning (Nmap, Socket)</li>
+        <li>🛡️ Vulnerability Detection</li>
+        <li>🐧 Linux & Terminal Basics</li>
+        <li>🌱 Git & GitHub</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h2>🏆 Certifications</h2>
+      <ul>
+        <li>📜 Mastercard - Cybersecurity Job Simulation</li>
+        <li>📜 Deloitte Australia - Cyber Job Simulation</li>
+        <li>📜 AIG Shields Up: Cybersecurity Completion Certificate</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h2>🧰 Tools I’ve Used</h2>
+      <ul>
+        <li>📡 Nmap – Network Scanning & Recon</li>
+        <li>🔍 Wireshark – Traffic Analysis</li>
+        <li>🕷️ Burp Suite – Web App Security Testing</li>
+        <li>💥 Metasploit – Exploitation Framework</li>
+        <li>📨 Formspree – Static Contact Form</li>
+        <li>🌱 Git & GitHub – Version Control</li>
+        <li>🖥️ VS Code, Python, Linux Terminal</li>
       </ul>
     </div>
 
@@ -136,11 +179,11 @@
         <a href="https://www.linkedin.com/in/nhyira-yanney-b19898178" target="_blank">LinkedIn</a>
         <a href="https://github.com/PacketWhisperer" target="_blank">GitHub</a>
       </div>
+      <a class="download-cv" href="cv.pdf" download>📄 Download CV</a>
     </div>
 
     <div class="project">
       <h2>📂 Projects</h2>
-
       <p><strong>🔐 Password Strength Checker</strong> — Checks if a password is strong or weak and gives advice.<br>
       <a href="https://github.com/PacketWhisperer/password-checker" target="_blank">View on GitHub</a></p>
 
