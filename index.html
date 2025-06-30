@@ -217,6 +217,20 @@
   <p>Made with ❤️ by PacketWhisperer | Powered by GitHub Pages</p>
   <p>👁️ Visitors: <img src="https://api.counterapi.dev/v2/packetwhisperer/page-views" alt="visitor counter"></p>
 </div>
+
+    <script>
+  fetch('https://api.counterapi.dev/v2/packetwhisperer/page-views')
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById('visitor-count').innerText = data.count;
+    })
+    .catch(err => {
+      document.getElementById('visitor-count').innerText = "Unavailable";
+      console.error("Visitor counter error:", err);
+    });
+</script>
+
+
   </div>
 
 </body>
