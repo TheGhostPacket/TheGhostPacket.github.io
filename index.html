@@ -120,56 +120,11 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-  
-    .fade-in {
-      animation: fadeInText 2s ease-in-out forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeInText {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    body[data-theme='light'] {
-      background: #f8fafc;
-      color: #0f172a;
-    }
-
-    body[data-theme='light'] .header,
-    body[data-theme='light'] .project,
-    body[data-theme='light'] .footer {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-
-    body[data-theme='light'] a {
-      color: #0ea5e9;
-    }
-
   </style>
 </head>
 <body>
 
-  <div style="position: absolute; top: 20px; right: 30px;">
-    <button onclick="toggleTheme()" id="theme-toggle" style="padding: 8px 12px; border-radius: 6px; background: #334155; color: #f8fafc; border: none; cursor: pointer;">
-      Toggle Theme
-    </button>
-  </div>
-
-
-  <div class="header fade-in">
+  <div class="header">
     <h1>Hi, I'm PacketWhisperer 👋</h1>
     <p>Cybersecurity Enthusiast | Python Learner | Portfolio Projects</p>
   </div>
@@ -267,35 +222,7 @@
 
   </div>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9bb3671c8ce748bab3d43b43ee71e0d4"}'></script>
-
-  <script>
-    // Theme toggle
-    function toggleTheme() {
-      const current = document.body.dataset.theme;
-      const newTheme = current === 'light' ? 'dark' : 'light';
-      document.body.dataset.theme = newTheme;
-      localStorage.setItem('theme', newTheme);
-    }
-
-    // On page load
-    window.onload = () => {
-      const saved = localStorage.getItem('theme') || 'dark';
-      document.body.dataset.theme = saved;
-    };
-
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    });
-
-    document.querySelectorAll('.project').forEach(el => {
-      el.classList.add('reveal');
-      observer.observe(el);
-    });
-  </script>
 </body>
 </html>
+
+
