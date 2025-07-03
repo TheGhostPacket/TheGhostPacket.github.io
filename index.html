@@ -269,7 +269,6 @@
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9bb3671c8ce748bab3d43b43ee71e0d4"}'></script>
 
   <script>
-    // Theme toggle
     function toggleTheme() {
       const current = document.body.dataset.theme;
       const newTheme = current === 'light' ? 'dark' : 'light';
@@ -277,13 +276,11 @@
       localStorage.setItem('theme', newTheme);
     }
 
-    // On page load
     window.onload = () => {
       const saved = localStorage.getItem('theme') || 'dark';
       document.body.dataset.theme = saved;
     };
 
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
