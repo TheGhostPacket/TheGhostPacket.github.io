@@ -158,40 +158,42 @@
       color: #0ea5e9;
     }
 
+    body[data-theme='light'] #theme-toggle {
+      background: #64748b !important;
+      color: #f8fafc !important;
+    }
+
+    #theme-toggle {
+      transition: all 0.3s ease;
+    }
+
+    #theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
     @media screen and (max-width: 600px) {
-  #theme-toggle {
-    top: 5px;
-    right: 10px;
-    padding: 6px 10px;
-    font-size: 14px;
-  }
-}
-
-
+      #theme-toggle {
+        top: 5px !important;
+        right: 10px !important;
+        padding: 8px 12px !important;
+        font-size: 16px !important;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div style="position: absolute; top: 20px; right: 30px;">
-    <button onclick="toggleTheme()" id="theme-toggle" style="padding: 8px 12px; border-radius: 6px; background: #334155; color: #f8fafc; border: none; cursor: pointer;">
-      Toggle Theme
-    </button>
-  </div>
-
-
-  
 <div class="header fade-in" style="position: relative;">
   <h1>Hi, I'm PacketWhisperer 👋</h1>
   <p>Cybersecurity Enthusiast | Python Learner | Portfolio Projects</p>
 
   <button onclick="toggleTheme()" id="theme-toggle"
-    style="position: absolute; top: 10px; right: 20px; padding: 8px 12px;
-           border-radius: 6px; background: #334155; color: #f8fafc;
-           border: none; cursor: pointer;">
-    Toggle Theme
+    style="position: absolute; top: 10px; right: 20px; padding: 10px 15px;
+           border-radius: 8px; background: #334155; color: #f8fafc;
+           border: none; cursor: pointer; font-size: 20px;">
+    <span id="theme-icon">🌙</span>
   </button>
 </div>
-
 
   <div class="container">
     <div class="profile">
@@ -200,7 +202,7 @@
 
     <div class="project">
       <h2>👤 About Me</h2>
-      <p>I’m an aspiring cybersecurity analyst passionate about ethical hacking, network security, and automation with Python. I'm building hands-on projects to grow my skills and showcase my capabilities in offensive and defensive security.</p>
+      <p>I'm an aspiring cybersecurity analyst passionate about ethical hacking, network security, and automation with Python. I'm building hands-on projects to grow my skills and showcase my capabilities in offensive and defensive security.</p>
     </div>
 
     <div class="project">
@@ -226,7 +228,7 @@
     </div>
 
     <div class="project">
-      <h2>🧰 Tools I’ve Used</h2>
+      <h2>🧰 Tools I've Used</h2>
       <ul>
         <li>📡 Nmap – Network Scanning & Recon</li>
         <li>🔍 Wireshark – Traffic Analysis</li>
@@ -248,7 +250,7 @@
       <a class="download-cv" href="cv.pdf" download>📄 Download CV</a>
     </div>
 
-  <div class="project">
+    <div class="project">
       <h2>📂 Projects</h2>
       <p><strong>🔐 Password Strength Checker</strong> — Checks if a password is strong or weak and gives advice.<br>
       <a href="https://github.com/PacketWhisperer/password-checker" target="_blank">View on GitHub</a></p>
@@ -262,12 +264,11 @@
       <p><strong>🔓 Hash Cracker (SHA256)</strong> — Cracks SHA256 password hashes using a wordlist.<br>
       <a href="https://github.com/PacketWhisperer/hash-cracker" target="_blank">View on GitHub</a></p>
 
-      <p><strong>🤖 Vin Checker Bot</strong> — An intelligent Telegram bot that checks the VIN of any car in the world.<br>
-      <a href="https://github.com/PacketWhisperer/vin-checker-bot.git" target="_blank">View on GitHub</a></p>
+      <p><strong>🤖 VIN Checker Bot</strong> — An intelligent Telegram bot that checks the VIN of any car in the world.<br>
+      <a href="https://github.com/PacketWhisperer/vin-checker-bot" target="_blank">View on GitHub</a></p>
 
       <p><strong>📊 Cybersecurity Analytics Dashboard</strong> — A log analysis tool that detects failed login patterns and displays them using charts.<br>
       <a href="https://github.com/PacketWhisperer/cybersecurity-analytics-dashboard" target="_blank">View on GitHub</a></p>
-
    </div>
     
     <div class="project">
@@ -286,12 +287,12 @@
       </form>
     </div>
 
- <div class="footer">
-  <p>Made with ❤️ by PacketWhisperer | Powered by GitHub Pages</p>
-  <p>👁️ Visitors:
-    <img src="https://img.shields.io/badge/Visits-274-blue?style=flat-square&logo=eye" alt="visitor count" />
-  </p>
-</div>
+    <div class="footer">
+      <p>Made with ❤️ by PacketWhisperer | Powered by GitHub Pages</p>
+      <p>👁️ Visitors:
+        <img src="https://komarev.com/ghpvc/?username=PacketWhisperer&color=38bdf8&style=flat-square&label=Profile+Views" alt="visitor count" />
+      </p>
+    </div>
 
   </div>
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9bb3671c8ce748bab3d43b43ee71e0d4"}'></script>
@@ -303,12 +304,32 @@
       const newTheme = current === 'light' ? 'dark' : 'light';
       document.body.dataset.theme = newTheme;
       localStorage.setItem('theme', newTheme);
+      
+      // Update icon
+      const icon = document.getElementById('theme-icon');
+      if (icon) {
+        if (newTheme === 'light') {
+          icon.textContent = '☀️';
+        } else {
+          icon.textContent = '🌙';
+        }
+      }
     }
 
     // On page load
     window.onload = () => {
       const saved = localStorage.getItem('theme') || 'dark';
       document.body.dataset.theme = saved;
+      
+      // Set initial icon
+      const icon = document.getElementById('theme-icon');
+      if (icon) {
+        if (saved === 'light') {
+          icon.textContent = '☀️';
+        } else {
+          icon.textContent = '🌙';
+        }
+      }
     };
 
     // Scroll reveal
