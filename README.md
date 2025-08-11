@@ -1,2 +1,2 @@
-# PacketWhisperer.github.io
+# TheGhostPacket.github.io
 My Cybersecurity Project Portfolio
