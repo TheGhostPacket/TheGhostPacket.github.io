@@ -451,6 +451,46 @@
       transform: scale(1.1);
     }
 
+    /* Professional Email Highlight */
+    .email-highlight {
+      background: linear-gradient(135deg, #1e293b, #334155);
+      border: 2px solid #38bdf8;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin: 20px 0;
+      box-shadow: 0 8px 25px rgba(56, 189, 248, 0.2);
+    }
+
+    .email-highlight h3 {
+      margin: 0 0 10px 0;
+      color: #38bdf8;
+      font-size: 20px;
+    }
+
+    .email-highlight .email-address {
+      font-size: 22px;
+      font-weight: bold;
+      color: #38bdf8;
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgba(56, 189, 248, 0.1);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .email-highlight .email-address:hover {
+      background: rgba(56, 189, 248, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .email-subtitle {
+      color: #94a3b8;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
     @media screen and (max-width: 600px) {
       #theme-toggle {
         top: 5px !important;
@@ -474,6 +514,11 @@
         height: 45px;
         bottom: 20px;
         right: 20px;
+      }
+
+      .email-highlight .email-address {
+        font-size: 18px;
+        padding: 8px 16px;
       }
     }
   </style>
@@ -514,6 +559,9 @@
     <div class="project" id="about">
       <h2>👤 About Me</h2>
       <p>I'm an aspiring cybersecurity analyst passionate about ethical hacking, network security, and automation with Python. I'm building hands-on projects to grow my skills and showcase my capabilities in offensive and defensive security.</p>
+      <p style="margin-top: 15px; padding: 12px; background: rgba(56, 189, 248, 0.1); border-left: 4px solid #38bdf8; border-radius: 6px;">
+        📧 <strong>Get in touch:</strong> <a href="mailto:contact@theghostpacket.com" style="color: #38bdf8; font-weight: bold;">contact@theghostpacket.com</a>
+      </p>
     </div>
 
     <div class="project">
@@ -564,9 +612,9 @@
     <div class="project">
       <h2>🔗 Connect With Me</h2>
       <div class="social-buttons">
-        <a href="mailto:contact@theghostpacket.com">Email</a>
-        <a href="https://www.linkedin.com/in/nhyira-yanney-b19898178" target="_blank">LinkedIn</a>
-        <a href="https://github.com/TheGhostPacket" target="_blank">GitHub</a>
+        <a href="mailto:contact@theghostpacket.com">📧 Email</a>
+        <a href="https://www.linkedin.com/in/nhyira-yanney-b19898178" target="_blank">💼 LinkedIn</a>
+        <a href="https://github.com/TheGhostPacket" target="_blank">💻 GitHub</a>
       </div>
       <a class="download-cv" href="cv.pdf" download>📄 Download CV</a>
     </div>
@@ -658,6 +706,16 @@
     
     <div class="project" id="contact">
       <h2>📩 Contact Me</h2>
+      
+      <!-- Direct Email Contact -->
+      <div style="text-align: center; margin-bottom: 25px; padding: 20px; background: linear-gradient(135deg, #334155, #475569); border-radius: 12px; border: 1px solid #38bdf8;">
+        <h3 style="margin: 0 0 10px 0; color: #38bdf8;">💼 Business Email</h3>
+        <a href="mailto:contact@theghostpacket.com" style="color: #38bdf8; font-size: 20px; font-weight: bold; text-decoration: none;">
+          contact@theghostpacket.com
+        </a>
+        <p style="margin: 10px 0 0 0; color: #94a3b8; font-size: 14px;">Click to send an email directly</p>
+      </div>
+
       <div class="emoji-reactions">
         <button class="emoji-btn" onclick="showMessage('👍')">👍</button>
         <button class="emoji-btn" onclick="showMessage('💼')">💼</button>
@@ -666,10 +724,10 @@
       </div>
       
       <div class="success-message" id="success-message">
-        ✅ Message sent successfully! I'll get back to you soon.
+        ✅ Message sent successfully! I'll get back to you soon at contact@theghostpacket.com
       </div>
       
-      <form id="contact-form" action="https://formspree.io/f/mrbkrzyz" method="POST" class="contact-form">
+      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
         <div class="form-group">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" required>
@@ -677,7 +735,7 @@
         </div>
 
         <div class="form-group">
-          <label for="email">Email:</label>
+          <label for="email">Your Email:</label>
           <input type="email" id="email" name="_replyto" required>
           <div class="error-message" id="email-error">Please enter a valid email</div>
         </div>
@@ -688,10 +746,18 @@
           <div class="error-message" id="message-error">Please enter your message</div>
         </div>
 
+        <!-- Hidden field to specify where replies should go -->
+        <input type="hidden" name="_subject" value="New contact from theghostpacket.com">
+        <input type="hidden" name="_next" value="https://theghostpacket.com/thank-you.html">
+
         <button type="submit" class="submit-btn" id="submit-btn">
           <span class="spinner" id="spinner"></span>
           <span id="btn-text">Send Message</span>
         </button>
+
+        <p style="font-size: 12px; color: #94a3b8; margin-top: 10px; text-align: center;">
+          📨 Form messages will be forwarded to contact@theghostpacket.com
+        </p>
       </form>
     </div>
 
@@ -700,6 +766,7 @@
 
     <div class="footer">
       <p>Made with ❤️ by TheGhostPacket | Powered by GitHub Pages</p>
+      <p>📧 Business Contact: <a href="mailto:contact@theghostpacket.com">contact@theghostpacket.com</a></p>
       <p>👁️ Visitors:
         <img src="https://komarev.com/ghpvc/?username=TheGhostPacket&color=38bdf8&style=flat-square&label=Profile+Views" alt="visitor count" />
       </p>
@@ -882,7 +949,7 @@
             throw new Error('Network response was not ok');
           }
         } catch (error) {
-          alert('Oops! There was a problem sending your message. Please try again.');
+          alert('Oops! There was a problem sending your message. Please try emailing contact@theghostpacket.com directly.');
         } finally {
           // Reset button state
           submitBtn.disabled = false;
@@ -946,7 +1013,7 @@
     function showMessage(emoji) {
       const messages = {
         '👍': "Thanks for the thumbs up!",
-        '💼': "Let's talk business!",
+        '💼': "Let's talk business at contact@theghostpacket.com!",
         '🤝': "Looking forward to connecting!",
         '🚀': "Ready to launch something amazing!"
       };
