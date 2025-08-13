@@ -420,6 +420,12 @@
       margin-top: 8px;
     }
 
+    /* Form Animation */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     @media screen and (max-width: 600px) {
       #theme-toggle {
         top: 5px !important;
@@ -658,6 +664,12 @@
 
       <div style="text-align: center; margin-top: 30px;">
         <h3 style="color: #38bdf8; margin-bottom: 15px;">💬 Quick Message Form</h3>
+        
+        <!-- Success message -->
+        <div id="success-message" style="display: none; background: #10b981; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; animation: slideDown 0.5s ease;">
+          ✅ Message sent successfully! I'll get back to you soon at contact@theghostpacket.com
+        </div>
+
         <form action="https://formspree.io/f/mkgzyvyw" method="POST" class="contact-form">
           <label for="name">Your Name:</label>
           <input type="text" id="name" name="name" required>
@@ -669,9 +681,11 @@
           <textarea id="message" name="message" rows="4" placeholder="Hi! I saw your portfolio and..." required></textarea>
 
           <input type="hidden" name="_subject" value="New message from theghostpacket.com">
-          <input type="hidden" name="_next" value="https://theghostpacket.com">
 
-          <button type="submit">Send Message 🚀</button>
+          <button type="submit" id="submit-btn">
+            <span id="btn-text">Send Message 🚀</span>
+            <span id="loading" style="display: none;">Sending... ⏳</span>
+          </button>
         </form>
         <p style="font-size: 12px; color: #94a3b8; margin-top: 10px;">
           📨 Messages go directly to contact@theghostpacket.com
@@ -842,7 +856,72 @@
 
       // Start animations
       startTypingAnimation();
+      
+      // Setup contact form
+      setupContactForm();
     };
+
+    // Contact Form Handler
+    function setupContactForm() {
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const btnText = document.getElementById('btn-text');
+      const loading = document.getElementById('loading');
+      const successMessage = document.getElementById('success-message');
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          // Show loading state
+          btnText.style.display = 'none';
+          loading.style.display = 'inline';
+          submitBtn.disabled = true;
+
+          try {
+            // Submit form data
+            const formData = new FormData(form);
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'Accept': 'application/json'
+              }
+            });
+
+            if (response.ok) {
+              // Show success message
+              successMessage.style.display = 'block';
+              
+              // Clear form
+              form.reset();
+              
+              // Scroll to success message
+              successMessage.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+              });
+
+              // Hide success message after 5 seconds
+              setTimeout(() => {
+                successMessage.style.display = 'none';
+              }, 5000);
+
+            } else {
+              throw new Error('Form submission failed');
+            }
+          } catch (error) {
+            // Show error message
+            alert('Message could not be sent. Please try emailing contact@theghostpacket.com directly.');
+          } finally {
+            // Reset button state
+            btnText.style.display = 'inline';
+            loading.style.display = 'none';
+            submitBtn.disabled = false;
+          }
+        });
+      }
+    }
 
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
