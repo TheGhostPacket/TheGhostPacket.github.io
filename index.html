@@ -383,21 +383,24 @@
     }
 
     .project-links {
-      padding: 1.5rem;
-      display: flex;
-      gap: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap; /* Prevents wrapping */
     }
 
-    .project-link {
-      flex: 1;
-      text-align: center;
-      padding: 0.8rem;
-      background: var(--bg-hover);
-      color: var(--text);
-      text-decoration: none;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      font-weight: 500;
+   .project-link {
+    flex: 1;
+    text-align: center;
+    padding: 0.8rem;
+    background: var(--bg-hover);
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    min-width: 0; /* Allows flex items to shrink */
+    white-space: nowrap; /* Prevents text wrapping */
     }
 
     .project-link:hover {
