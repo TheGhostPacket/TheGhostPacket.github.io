@@ -409,35 +409,6 @@
       background: var(--success);
     }
 
-    /* Featured project styling */
-    .featured-project {
-      border: 2px solid var(--primary);
-      position: relative;
-    }
-
-    .featured-project::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-    }
-
-    .featured-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      z-index: 2;
-    }
-
     /* Contact Section */
     .contact-grid {
       display: grid;
@@ -722,7 +693,7 @@
     <!-- Stats -->
     <div class="stats-grid fade-up stagger-2">
       <div class="stat-card">
-        <span class="stat-number">10+</span>
+        <span class="stat-number">8+</span>
         <span class="stat-label">Projects Completed</span>
       </div>
       <div class="stat-card">
@@ -964,45 +935,8 @@
     <h2 class="section-title fade-up">Featured Projects</h2>
     <div class="projects-grid">
       
-      <!-- FEATURED: Hash Cracker Educational Platform -->
-      <div class="project-card featured-project fade-up stagger-1">
-        <div class="featured-badge">⭐ Featured</div>
-        <div class="project-header">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
-              🔓
-            </div>
-            <div>
-              <h3 class="project-title" style="margin-bottom: 0.2rem;">Hash Cracker Educational Platform</h3>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">Advanced Cybersecurity Learning Tool</p>
-            </div>
-          </div>
-          <p class="project-description">
-            Comprehensive educational cybersecurity platform that evolved from a CLI tool to a full-featured web application. Features interactive hash generation, password strength analysis, algorithm comparison, security quiz system, and dark mode. Demonstrates both offensive/defensive security concepts and modern web development practices.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag">Python Flask</span>
-          <span class="tag">Cybersecurity</span>
-          <span class="tag">Educational Tech</span>
-          <span class="tag">Interactive Learning</span>
-          <span class="tag">Hash Functions</span>
-          <span class="tag">Password Security</span>
-          <span class="tag">Dark Mode</span>
-          <span class="tag">Full-Stack</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/TheGhostPacket/hash-cracker" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> Code
-          </a>
-          <a href="https://your-hash-cracker-url.onrender.com" target="_blank" class="project-link live">
-            <i class="fas fa-external-link-alt"></i> Live Demo
-          </a>
-        </div>
-      </div>
-
-      <!-- Personal Finance Tracker -->
-      <div class="project-card fade-up stagger-2">
+      <!-- NEW: Personal Finance Tracker - Featured Project -->
+      <div class="project-card fade-up stagger-1">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
@@ -1035,7 +969,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-up stagger-3">
+      <div class="project-card fade-up stagger-2">
         <div class="project-header">
           <h3 class="project-title">🚀 Enterprise AI Phishing Detector</h3>
           <p class="project-description">
@@ -1058,7 +992,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-up stagger-4">
+      <div class="project-card fade-up stagger-3">
         <div class="project-header">
           <h3 class="project-title">🛡️ Cybersecurity Analytics Dashboard</h3>
           <p class="project-description">
@@ -1081,7 +1015,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-up stagger-1">
+      <div class="project-card fade-up stagger-4">
         <div class="project-header">
           <h3 class="project-title">🔐 Advanced Password Strength Checker</h3>
           <p class="project-description">
@@ -1104,7 +1038,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-up stagger-2">
+      <div class="project-card fade-up stagger-1">
         <div class="project-header">
           <h3 class="project-title">🤖 Intelligent VIN Checker Bot</h3>
           <p class="project-description">
@@ -1127,7 +1061,7 @@
         </div>
       </div>
 
-      <div class="project-card fade-up stagger-3">
+      <div class="project-card fade-up stagger-2">
         <div class="project-header">
           <h3 class="project-title">🕵️ Advanced Port Scanner</h3>
           <p class="project-description">
@@ -1327,7 +1261,7 @@
       } else {
         body.classList.add('light-theme');
         localStorage.setItem('theme', 'light');
-      </div>
+      }
     }
 
     // Load saved theme
