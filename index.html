@@ -642,6 +642,29 @@
       }
     }
 
+    /* Light Theme */
+    body.light-theme {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #f1f5f9;
+      --accent: #0891b2;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --bg-dark: #ffffff;
+      --bg-card: #f8fafc;
+      --bg-hover: #e2e8f0;
+      --border: #e2e8f0;
+      --success: #059669;
+      --warning: #d97706;
+      --neon-green: #059669;
+      --red-team: #dc2626;
+      --blue-team: #2563eb;
+    }
+
+    body.light-theme {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    }
+
     /* Animations */
     .fade-up {
       opacity: 0;
@@ -988,32 +1011,30 @@
     <h2 class="section-title fade-up">Featured Projects</h2>
     <div class="projects-grid">
 
-      <!-- SOC SIMULATOR CARD - FLAGSHIP PROJECT (IMPROVED SPACING) -->
+      <!-- SOC SIMULATOR CARD - FLAGSHIP PROJECT (COMPACT) -->
       <div class="project-card fade-up stagger-1" style="border: 3px solid #3b82f6; position: relative; overflow: hidden;">
         <!-- Flagship Project Badge -->
-        <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; z-index: 2; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
+        <div style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; z-index: 2; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
           👑 FLAGSHIP PROJECT
         </div>
         
         <!-- Premium Glow Effect -->
         <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #3b82f6, #06b6d4, #3b82f6, transparent); animation: shimmer 3s ease-in-out infinite;"></div>
 
-        <div class="project-header" style="padding: 2rem;">
-          <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem;">
-            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6, #06b6d4); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3); flex-shrink: 0;">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #3b82f6, #06b6d4); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);">
               🏢
             </div>
-            <div style="flex: 1; padding-top: 0.5rem;">
-              <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; line-height: 1.2;">
-                CyberSim: Enterprise SOC Simulator
-              </h3>
-              <p style="color: var(--text-muted); font-size: 1rem; font-weight: 500; margin: 0;">
-                Professional Security Operations Center Training Platform
-              </p>
+            <div style="flex: 1;">
+              <h3 class="project-title" style="margin-bottom: 0.3rem; font-size: 1.3rem;">CyberSim: Enterprise SOC Simulator</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Professional Security Operations Center Training Platform</p>
             </div>
           </div>
-          <p style="color: var(--text); line-height: 1.7; font-size: 1rem; margin: 0;">
-            Enterprise-grade Security Operations Center simulator with real-time incident management, professional SIEM dashboard, and authentic cybersecurity scenarios. Features advanced threat detection workflows, interactive analytics, multi-priority incident triage, and comprehensive SOC analyst training modules based on industry frameworks (NIST, SANS, MITRE ATT&CK).
+          <p class="project-description">
+            Enterprise-grade Security Operations Center simulator with real-time incident management, professional SIEM dashboard, and authentic cybersecurity scenarios. Features advanced threat detection workflows, interactive analytics, multi-priority incident triage, and comprehensive SOC analyst training modules.
+            <br><br>
+            <strong style="color: var(--warning);">⚠️ Loading Issues?</strong> Try: Hard refresh (Ctrl+F5), wait 60 seconds, or check browser console (F12) for JavaScript errors.
           </p>
         </div>
 
@@ -1119,27 +1140,23 @@
         </div>
       </div>
 
-      <!-- Red Team vs Blue Team - ELITE PROJECT (IMPROVED SPACING) -->
+      <!-- Red Team vs Blue Team - ELITE PROJECT (COMPACT) -->
       <div class="project-card fade-up stagger-1" style="border: 3px solid var(--red-team); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, var(--red-team), var(--blue-team)); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; z-index: 2; box-shadow: 0 4px 15px rgba(255, 45, 45, 0.4);">
+        <div style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, var(--red-team), var(--blue-team)); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; z-index: 2; box-shadow: 0 4px 15px rgba(255, 45, 45, 0.4);">
           🔥 ELITE PROJECT
         </div>
         
-        <div class="project-header" style="padding: 2rem;">
-          <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem;">
-            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--red-team), var(--blue-team)); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; box-shadow: 0 8px 25px rgba(255, 45, 45, 0.3); flex-shrink: 0;">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--red-team), var(--blue-team)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 8px 25px rgba(255, 45, 45, 0.3);">
               ⚔️
             </div>
-            <div style="flex: 1; padding-top: 0.5rem;">
-              <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; line-height: 1.2;">
-                Red Team vs Blue Team: Cyber Range
-              </h3>
-              <p style="color: var(--text-muted); font-size: 1rem; font-weight: 500; margin: 0;">
-                Advanced Cybersecurity War Game
-              </p>
+            <div style="flex: 1;">
+              <h3 class="project-title" style="margin-bottom: 0.3rem; font-size: 1.3rem;">Red Team vs Blue Team: Cyber Range</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Advanced Cybersecurity War Game</p>
             </div>
           </div>
-          <p style="color: var(--text); line-height: 1.7; font-size: 1rem; margin: 0;">
+          <p class="project-description">
             Enterprise-level cybersecurity training simulator where players experience realistic cyber warfare scenarios. Features authentic MITRE ATT&CK techniques, interactive network visualization, strategic resource management, and comprehensive educational content for both offensive and defensive security operations.
           </p>
         </div>
@@ -1277,27 +1294,23 @@
         </div>
       </div>
 
-      <!-- Malware Defense Game - NEW GAME (IMPROVED SPACING) -->
+      <!-- Malware Defense Game - NEW GAME (COMPACT) -->
       <div class="project-card fade-up stagger-1" style="border: 2px solid var(--neon-green); position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 20px; right: 20px; background: linear-gradient(135deg, var(--neon-green), var(--accent)); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; z-index: 2; box-shadow: 0 4px 15px rgba(0, 255, 65, 0.4);">
+        <div style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, var(--neon-green), var(--accent)); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; z-index: 2; box-shadow: 0 4px 15px rgba(0, 255, 65, 0.4);">
           🎮 New Game
         </div>
         
-        <div class="project-header" style="padding: 2rem;">
-          <div style="display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem;">
-            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--neon-green), #00ffff); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; box-shadow: 0 8px 25px rgba(0, 255, 65, 0.3); flex-shrink: 0;">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--neon-green), #00ffff); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 8px 25px rgba(0, 255, 65, 0.3);">
               🚀
             </div>
-            <div style="flex: 1; padding-top: 0.5rem;">
-              <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; line-height: 1.2;">
-                Malware Defense Game
-              </h3>
-              <p style="color: var(--text-muted); font-size: 1rem; font-weight: 500; margin: 0;">
-                Educational Cybersecurity Game
-              </p>
+            <div style="flex: 1;">
+              <h3 class="project-title" style="margin-bottom: 0.3rem; font-size: 1.3rem;">Malware Defense Game</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Educational Cybersecurity Game</p>
             </div>
           </div>
-          <p style="color: var(--text); line-height: 1.7; font-size: 1rem; margin: 0;">
+          <p class="project-description">
             Space Invaders-style cybersecurity education game featuring 5 different malware types (virus, trojan, ransomware, spyware, APT), security tool power-ups, progressive difficulty, and real malware education. Built with HTML5 Canvas and pure JavaScript.
           </p>
         </div>
@@ -1700,13 +1713,16 @@
     // Theme toggle
     function toggleTheme() {
       const body = document.body;
-      const isDark = body.classList.contains('light-theme');
+      const themeButton = document.querySelector('.theme-toggle i');
+      const isCurrentlyLight = body.classList.contains('light-theme');
       
-      if (isDark) {
+      if (isCurrentlyLight) {
         body.classList.remove('light-theme');
+        themeButton.className = 'fas fa-moon';
         localStorage.setItem('theme', 'dark');
       } else {
         body.classList.add('light-theme');
+        themeButton.className = 'fas fa-sun';
         localStorage.setItem('theme', 'light');
       }
     }
@@ -1714,8 +1730,13 @@
     // Load saved theme
     window.addEventListener('load', () => {
       const savedTheme = localStorage.getItem('theme');
+      const themeButton = document.querySelector('.theme-toggle i');
+      
       if (savedTheme === 'light') {
         document.body.classList.add('light-theme');
+        themeButton.className = 'fas fa-sun';
+      } else {
+        themeButton.className = 'fas fa-moon';
       }
       
       // Start typing animation
