@@ -860,6 +860,44 @@
     </div>
   </section>
 
+  <!-- Blog Section -->
+  <section class="section" id="blog">
+    <h2 class="section-title">Latest Articles</h2>
+    <div class="projects-grid">
+      
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Building Secure Web Applications: Lessons from My Projects</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">December 2024 • 5 min read</p>
+          <p class="project-description">
+            Key security considerations I learned while building my personal finance tracker and hash educational platform. Covering input validation, authentication, and safe deployment practices.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Web Security</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Best Practices</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">From Developer to Cybersecurity: My Learning Journey</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">November 2024 • 4 min read</p>
+          <p class="project-description">
+            How I transitioned from full-stack development into cybersecurity, the skills that transferred over, and what I'm learning about penetration testing and vulnerability assessment.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Career</span>
+          <span class="tag">Learning</span>
+          <span class="tag">Cybersecurity</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- About Section -->
   <section class="section" id="about">
     <h2 class="section-title">About Me</h2>
@@ -1240,12 +1278,88 @@
         </div>
       </div>
 
-      <!-- More projects... (continuing with a few key ones) -->
+      <!-- Red Team vs Blue Team - Elite Project -->
+      <div class="project-card" style="border: 3px solid var(--red-team); position: relative; overflow: hidden;">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--red-team), var(--blue-team)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 8px 25px rgba(255, 45, 45, 0.3);">
+              ⚔️
+            </div>
+            <div style="flex: 1;">
+              <h3 class="project-title" style="margin-bottom: 0.3rem; font-size: 1.3rem;">Red Team vs Blue Team: Cyber Range</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Advanced Cybersecurity War Game</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Enterprise-level cybersecurity training simulator where players experience realistic cyber warfare scenarios. Features authentic MITRE ATT&CK techniques, interactive network visualization, strategic resource management, and comprehensive educational content for both offensive and defensive security operations.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">MITRE ATT&CK</span>
+          <span class="tag">Red Team Operations</span>
+          <span class="tag">Blue Team Defense</span>
+          <span class="tag">Interactive Learning</span>
+          <span class="tag">Network Visualization</span>
+          <span class="tag">Enterprise Training</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/red-blue-cyber-range" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://theghostpacket.github.io/red-blue-cyber-range/" target="_blank" class="project-link live">
+            <i class="fas fa-gamepad"></i> Play Simulation
+          </a>
+        </div>
+      </div>
+
+      <!-- Snake vs AI Game -->
       <div class="project-card">
         <div class="project-header">
-          <h3 class="project-title">🚀 Enterprise AI Phishing Detector</h3>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #4ade80, #22c55e); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🐍
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Snake vs AI Game</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Intelligent Game AI & Algorithms</p>
+            </div>
+          </div>
           <p class="project-description">
-            Advanced threat detection system with machine learning capabilities, real-time URL scanning, and enterprise dashboard.
+            Advanced Snake game featuring intelligent AI opponent with 4 difficulty levels. Implements pathfinding algorithms, collision detection, real-time competition, and mobile-responsive controls. AI uses space analysis and heuristic evaluation for strategic gameplay.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Game AI</span>
+          <span class="tag">Pathfinding Algorithms</span>
+          <span class="tag">Real-time Gaming</span>
+          <span class="tag">Canvas Graphics</span>
+          <span class="tag">Mobile Responsive</span>
+          <span class="tag">Performance Optimization</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/snake-vs-ai-game" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://theghostpacket.github.io/snake-vs-ai-game/" target="_blank" class="project-link live">
+            <i class="fas fa-gamepad"></i> Play Game
+          </a>
+        </div>
+      </div>
+
+      <!-- Enterprise AI Phishing Detector -->
+      <div class="project-card">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🚀
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Enterprise AI Phishing Detector</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Machine Learning Security Tool</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Advanced threat detection system with machine learning capabilities, real-time URL scanning, domain spoofing detection, and enterprise dashboard. Features live monitoring and AI-powered analysis.
           </p>
         </div>
         <div class="project-tags">
@@ -1264,11 +1378,20 @@
         </div>
       </div>
 
+      <!-- Cybersecurity Analytics Dashboard -->
       <div class="project-card">
         <div class="project-header">
-          <h3 class="project-title">🛡️ Cybersecurity Analytics Dashboard</h3>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8b5cf6, #a855f7); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🛡️
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Cybersecurity Analytics Dashboard</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Log Analysis & Threat Monitoring</p>
+            </div>
+          </div>
           <p class="project-description">
-            Comprehensive log analysis tool that detects failed login patterns, suspicious activities, and generates visual reports.
+            Comprehensive log analysis tool that detects failed login patterns, suspicious activities, and generates visual reports. Real-time monitoring with interactive charts and alerts.
           </p>
         </div>
         <div class="project-tags">
@@ -1287,18 +1410,29 @@
         </div>
       </div>
 
+      <!-- Cyber Detective: Password Breaker -->
       <div class="project-card">
         <div class="project-header">
-          <h3 class="project-title">🕵️ Cyber Detective: Password Breaker</h3>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #00ff41, #00d4ff); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🕵️
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Cyber Detective: Password Breaker</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Educational Security Game</p>
+            </div>
+          </div>
           <p class="project-description">
-            Interactive cybersecurity education game featuring realistic attack simulations with real-time password cracking visualization.
+            Interactive cybersecurity education game featuring 4 realistic attack simulations (brute force, dictionary, pattern analysis, social engineering). Real-time password cracking visualization with security analysis, achievements, and best practices education.
           </p>
         </div>
         <div class="project-tags">
           <span class="tag">Educational Gaming</span>
           <span class="tag">Password Security</span>
-          <span class="tag">JavaScript</span>
+          <span class="tag">Attack Simulations</span>
+          <span class="tag">Real-time Animation</span>
           <span class="tag">Security Awareness</span>
+          <span class="tag">Pure JavaScript</span>
         </div>
         <div class="project-links">
           <a href="https://github.com/TheGhostPacket/cyber-detective-password-breaker" target="_blank" class="project-link">
@@ -1306,6 +1440,235 @@
           </a>
           <a href="https://theghostpacket.github.io/cyber-detective-password-breaker/" target="_blank" class="project-link live">
             <i class="fas fa-gamepad"></i> Play Game
+          </a>
+        </div>
+      </div>
+
+      <!-- Malware Defense Game -->
+      <div class="project-card" style="border: 2px solid var(--neon-green); position: relative; overflow: hidden;">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--neon-green), #00ffff); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 8px 25px rgba(0, 255, 65, 0.3);">
+              🚀
+            </div>
+            <div style="flex: 1;">
+              <h3 class="project-title" style="margin-bottom: 0.3rem; font-size: 1.3rem;">Malware Defense Game</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Educational Cybersecurity Game</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Space Invaders-style cybersecurity education game featuring 5 different malware types (virus, trojan, ransomware, spyware, APT), security tool power-ups, progressive difficulty, and real malware education. Built with HTML5 Canvas and pure JavaScript.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">HTML5 Canvas</span>
+          <span class="tag">Game Development</span>
+          <span class="tag">Cybersecurity Education</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Mobile Responsive</span>
+          <span class="tag">Educational Gaming</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/malware-defense-game" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://theghostpacket.github.io/malware-defense-game/" target="_blank" class="project-link live">
+            <i class="fas fa-gamepad"></i> Play Game
+          </a>
+        </div>
+      </div>
+
+      <!-- Advanced Password Strength Checker -->
+      <div class="project-card">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ef4444, #dc2626); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🔐
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Advanced Password Strength Checker</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Security Analysis Tool</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Intelligent password security analyzer with real-time strength assessment, detailed feedback, and security recommendations. Features breach database checking and entropy calculation.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Security</span>
+          <span class="tag">Web App</span>
+          <span class="tag">Flask</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/password-checker" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://password-strength-checker-208m.onrender.com/" target="_blank" class="project-link live">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- Password Generator & Analyzer -->
+      <div class="project-card">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🔐
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Password Generator & Analyzer</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Advanced Password Security Tool</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Comprehensive password security suite featuring cryptographically secure generation, real-time strength analysis, entropy calculation, and security best practices. Client-side application with bulk generation and export capabilities.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Client-Side Security</span>
+          <span class="tag">Cryptographic RNG</span>
+          <span class="tag">Entropy Analysis</span>
+          <span class="tag">Security Best Practices</span>
+          <span class="tag">Pure JavaScript</span>
+          <span class="tag">No Dependencies</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/password-generator" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://theghostpacket.github.io/password-generator/" target="_blank" class="project-link live">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- Network Health Checker -->
+      <div class="project-card">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #10b981, #059669); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🌐
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Network Health Checker</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Real-time Network Monitoring</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Professional network monitoring dashboard with real-time health checks, response time analytics, uptime tracking, and beautiful data visualizations. Essential tool for infrastructure monitoring and incident detection.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python Flask</span>
+          <span class="tag">Network Monitoring</span>
+          <span class="tag">Real-time Dashboard</span>
+          <span class="tag">SQLite</span>
+          <span class="tag">Chart.js</span>
+          <span class="tag">Cybersecurity</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/network-health-checker" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://network-health-checker.onrender.com" target="_blank" class="project-link live">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- Intelligent VIN Checker Bot -->
+      <div class="project-card">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #06b6d4, #0891b2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🤖
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Intelligent VIN Checker Bot</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Telegram Automation Bot</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Advanced Telegram bot for global vehicle identification with real-time VIN decoding, comprehensive vehicle data retrieval, and instant verification capabilities.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Bot</span>
+          <span class="tag">API</span>
+          <span class="tag">Telegram</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/vin-checker-bot" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://t.me/checkervin_bot" target="_blank" class="project-link live">
+            <i class="fas fa-external-link-alt"></i> Try Bot
+          </a>
+        </div>
+      </div>
+
+      <!-- Advanced Port Scanner -->
+      <div class="project-card">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #64748b, #475569); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🕵️
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Advanced Port Scanner</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Network Reconnaissance Tool</p>
+            </div>
+          </div>
+          <p class="project-description">
+            High-performance network reconnaissance tool with multi-threading, service detection, and comprehensive reporting. Features stealth scanning and vulnerability identification.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Security</span>
+          <span class="tag">Threading</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/port-scanner" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+        </div>
+      </div>
+
+      <!-- IP Geolocation Tracker -->
+      <div class="project-card">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #059669, #10b981); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🌍
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">IP Geolocation Tracker</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Advanced Geographic Intelligence</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Professional IP geolocation analysis tool featuring multiple interactive map styles (satellite, terrain, dark theme), real-time lookup, ISP identification, and security risk assessment. Built for cybersecurity investigations and network intelligence.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python Flask</span>
+          <span class="tag">Multiple Map APIs</span>
+          <span class="tag">Satellite Imagery</span>
+          <span class="tag">Risk Assessment</span>
+          <span class="tag">Real-time Data</span>
+          <span class="tag">Cybersecurity</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/ip-geolocation-tracker" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="#" target="_blank" class="project-link live">
+            <i class="fas fa-external-link-alt"></i> Live Demo
           </a>
         </div>
       </div>
