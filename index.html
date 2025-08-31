@@ -6,7 +6,7 @@
   <title>TheGhostPacket | Cybersecurity Portfolio</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    /* Add these animations to your existing CSS */
+    /* Enhanced animations */
     @keyframes shimmer {
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
@@ -17,7 +17,28 @@
       100% { left: 100%; }
     }
 
-    /* Enhanced hover effect for the flagship project */
+    @keyframes neonPulse {
+      0%, 100% { 
+        box-shadow: 0 0 5px #00ff41, 0 0 10px #00ff41, 0 0 20px #00ff41;
+      }
+      50% { 
+        box-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+      }
+    }
+
+    @keyframes floatingParticles {
+      0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Enhanced hover effect for flagship projects */
+    .flagship-project:hover {
+      transform: translateY(-12px) scale(1.02) !important;
+      box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(0, 255, 65, 0.4) !important;
+    }
+
     .project-card:hover {
       transform: translateY(-8px) !important;
       box-shadow: 
@@ -41,6 +62,8 @@
       --neon-green: #00ff41;
       --red-team: #ff2d2d;
       --blue-team: #2d7fff;
+      --retro-green: #00ff41;
+      --retro-amber: #ffaa00;
     }
 
     * {
@@ -55,9 +78,10 @@
       color: var(--text);
       line-height: 1.6;
       overflow-x: hidden;
+      position: relative;
     }
 
-    /* Animated Background */
+    /* Enhanced Animated Background with particles */
     .bg-animation {
       position: fixed;
       top: 0;
@@ -76,17 +100,37 @@
       width: 100%;
       height: 100%;
       background: radial-gradient(circle at 25% 25%, var(--primary) 0%, transparent 50%),
-                  radial-gradient(circle at 75% 75%, var(--accent) 0%, transparent 50%);
-      animation: float 20s ease-in-out infinite;
+                  radial-gradient(circle at 75% 75%, var(--accent) 0%, transparent 50%),
+                  radial-gradient(circle at 10% 80%, var(--neon-green) 0%, transparent 40%);
+      animation: float 25s ease-in-out infinite;
+    }
+
+    .floating-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: floatingParticles 8s linear infinite;
     }
 
     @keyframes float {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(-20px, -20px) scale(1.1); }
-      66% { transform: translate(20px, -10px) scale(0.9); }
+      0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+      33% { transform: translate(-30px, -30px) scale(1.2) rotate(120deg); }
+      66% { transform: translate(30px, -15px) scale(0.8) rotate(240deg); }
     }
 
-    /* Header */
+    /* Enhanced Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -95,6 +139,7 @@
       position: relative;
       text-align: center;
       padding: 2rem;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
     }
 
     .hero-content {
@@ -114,21 +159,47 @@
       transition: all 0.3s ease;
       animation: avatarGlow 3s ease-in-out infinite alternate;
       display: block;
+      position: relative;
+    }
+
+    .hero-avatar::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--primary), var(--accent), var(--neon-green));
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-avatar:hover::before {
+      opacity: 0.7;
     }
 
     @keyframes avatarGlow {
       from { box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3); }
-      to { box-shadow: 0 25px 50px rgba(59, 130, 246, 0.5); }
+      to { box-shadow: 0 25px 50px rgba(59, 130, 246, 0.5), 0 0 30px rgba(0, 255, 65, 0.2); }
     }
 
     .hero-title {
       font-size: clamp(2.5rem, 5vw, 4rem);
       font-weight: 700;
       margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--primary), var(--accent), var(--neon-green));
+      background-size: 400% 400%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: gradientShift 4s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .hero-subtitle {
@@ -168,6 +239,23 @@
       transition: all 0.3s ease;
       cursor: pointer;
       font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
     }
 
     .btn-primary {
@@ -177,8 +265,8 @@
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
     }
 
     .btn-outline {
@@ -190,10 +278,10 @@
     .btn-outline:hover {
       background: var(--primary);
       border-color: var(--primary);
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.05);
     }
 
-    /* Navigation */
+    /* Enhanced Navigation */
     .navbar {
       position: fixed;
       top: 0;
@@ -204,11 +292,12 @@
       z-index: 1000;
       padding: 1rem 0;
       transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(59, 130, 246, 0.1);
     }
 
     .navbar.scrolled {
       background: rgba(15, 23, 42, 0.95);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(59, 130, 246, 0.1);
     }
 
     .nav-container {
@@ -223,7 +312,10 @@
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--neon-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .nav-menu {
@@ -245,6 +337,7 @@
     .nav-link:hover, .nav-link.active {
       background: rgba(59, 130, 246, 0.1);
       color: var(--primary);
+      transform: translateY(-2px);
     }
 
     .theme-toggle {
@@ -265,10 +358,10 @@
     .theme-toggle:hover {
       background: var(--primary);
       border-color: var(--primary);
-      transform: scale(1.1);
+      transform: scale(1.1) rotate(180deg);
     }
 
-    /* Sections */
+    /* Enhanced Sections */
     .section {
       padding: 6rem 2rem;
       max-width: 1200px;
@@ -280,6 +373,10 @@
       text-align: center;
       margin-bottom: 3rem;
       position: relative;
+      background: linear-gradient(135deg, var(--text), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .section-title::after {
@@ -290,11 +387,11 @@
       transform: translateX(-50%);
       width: 60px;
       height: 4px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--primary), var(--accent), var(--neon-green));
       border-radius: 2px;
     }
 
-    /* Cards */
+    /* Enhanced Cards */
     .card {
       background: var(--bg-card);
       border-radius: 20px;
@@ -312,16 +409,16 @@
       left: 0;
       width: 100%;
       height: 2px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
+      background: linear-gradient(135deg, var(--primary), var(--accent), var(--neon-green));
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.02);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
       border-color: var(--primary);
     }
 
-    /* Skills Grid */
+    /* Enhanced Skills Grid */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -337,20 +434,28 @@
       background: rgba(59, 130, 246, 0.1);
       border-radius: 15px;
       transition: all 0.3s ease;
+      border: 1px solid transparent;
     }
 
     .skill-item:hover {
       background: rgba(59, 130, 246, 0.2);
-      transform: translateX(5px);
+      transform: translateX(10px);
+      border-color: rgba(59, 130, 246, 0.3);
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
     }
 
     .skill-icon {
       font-size: 2rem;
       color: var(--primary);
       min-width: 50px;
+      transition: all 0.3s ease;
     }
 
-    /* Projects Grid */
+    .skill-item:hover .skill-icon {
+      transform: scale(1.2);
+    }
+
+    /* Enhanced Projects Grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -363,11 +468,12 @@
       border-radius: 20px;
       overflow: hidden;
       border: 1px solid var(--border);
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
+      position: relative;
     }
 
     .project-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-10px) scale(1.02);
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     }
 
@@ -402,6 +508,12 @@
       border-radius: 20px;
       font-size: 0.8rem;
       font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+      background: rgba(59, 130, 246, 0.3);
+      transform: scale(1.1);
     }
 
     .project-links {
@@ -427,14 +539,14 @@
 
     .project-link:hover {
       background: var(--primary);
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
     }
 
     .project-link.live {
       background: var(--success);
     }
 
-    /* Contact Section */
+    /* Contact Section Enhancement */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -460,8 +572,9 @@
     }
 
     .contact-item:hover {
-      transform: translateX(10px);
+      transform: translateX(10px) scale(1.02);
       border-color: var(--primary);
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
     }
 
     .contact-icon {
@@ -510,7 +623,7 @@
       min-height: 120px;
     }
 
-    /* Statistics */
+    /* Enhanced Statistics */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -525,11 +638,29 @@
       border-radius: 20px;
       border: 1px solid var(--border);
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .stat-card:hover::before {
+      left: 100%;
     }
 
     .stat-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.05);
       border-color: var(--primary);
+      box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
     }
 
     .stat-number {
@@ -544,9 +675,9 @@
       margin-top: 0.5rem;
     }
 
-    /* Footer */
+    /* Enhanced Footer */
     .footer {
-      background: var(--bg-card);
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-dark));
       text-align: center;
       padding: 3rem 2rem;
       margin-top: 4rem;
@@ -577,17 +708,17 @@
     .social-link:hover {
       background: var(--primary);
       border-color: var(--primary);
-      transform: translateY(-3px);
+      transform: translateY(-5px) scale(1.1);
     }
 
-    /* Back to top */
+    /* Enhanced Back to top */
     .back-to-top {
       position: fixed;
       bottom: 2rem;
       right: 2rem;
       width: 60px;
       height: 60px;
-      background: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
       border: none;
       border-radius: 50%;
       color: white;
@@ -605,7 +736,7 @@
     }
 
     .back-to-top:hover {
-      transform: translateY(-5px);
+      transform: translateY(-5px) scale(1.1);
       box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
     }
 
@@ -642,7 +773,7 @@
       }
     }
 
-    /* Light Theme */
+    /* Enhanced Light Theme */
     body.light-theme {
       --primary: #2563eb;
       --primary-dark: #1d4ed8;
@@ -665,7 +796,7 @@
       background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
     }
 
-    /* Animations */
+    /* Enhanced Animations */
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
@@ -685,6 +816,7 @@
 </head>
 <body>
   <div class="bg-animation"></div>
+  <div class="floating-particles"></div>
   
   <!-- Navigation -->
   <nav class="navbar" id="navbar">
@@ -765,45 +897,16 @@
     <div class="skills-grid">
       <div class="card fade-up stagger-1">
         <h3 style="margin-bottom: 1.5rem; color: var(--primary);">
-          <i class="fas fa-shield-alt"></i> Cybersecurity Applications
+          <i class="fas fa-gamepad"></i> Retro & Educational Games
         </h3>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           <div class="skill-item">
-            <i class="fas fa-building skill-icon"></i>
+            <i class="fas fa-gamepad skill-icon" style="color: var(--retro-green);"></i>
             <div>
-              <strong>SOC Simulator Platform</strong>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">Professional security operations training</p>
+              <strong>Classic Pong Game</strong>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Retro gaming with modern tech</p>
             </div>
           </div>
-          <div class="skill-item">
-            <i class="fas fa-lock skill-icon"></i>
-            <div>
-              <strong>Hash Education Platform</strong>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive cryptography learning</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-brain skill-icon"></i>
-            <div>
-              <strong>AI Phishing Detector</strong>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">Machine learning threat detection</p>
-            </div>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-chart-line skill-icon"></i>
-            <div>
-              <strong>Security Analytics Dashboard</strong>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">Log analysis & threat monitoring</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card fade-up stagger-2">
-        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">
-          <i class="fas fa-gamepad"></i> Educational Games
-        </h3>
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
           <div class="skill-item">
             <i class="fas fa-crosshairs skill-icon"></i>
             <div>
@@ -825,8 +928,37 @@
               <p style="color: var(--text-muted); font-size: 0.9rem;">Space invaders-style security</p>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="card fade-up stagger-2">
+        <h3 style="margin-bottom: 1.5rem; color: var(--primary);">
+          <i class="fas fa-shield-alt"></i> Cybersecurity Applications
+        </h3>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
           <div class="skill-item">
-            <i class="fas fa-gamepad skill-icon"></i>
+            <i class="fas fa-lock skill-icon"></i>
+            <div>
+              <strong>Hash Education Platform</strong>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Interactive cryptography learning</p>
+            </div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-brain skill-icon"></i>
+            <div>
+              <strong>AI Phishing Detector</strong>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Machine learning threat detection</p>
+            </div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-chart-line skill-icon"></i>
+            <div>
+              <strong>Security Analytics Dashboard</strong>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Log analysis & threat monitoring</p>
+            </div>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-snake skill-icon"></i>
             <div>
               <strong>Snake vs AI</strong>
               <p style="color: var(--text-muted); font-size: 0.9rem;">Pathfinding algorithms</p>
@@ -1011,56 +1143,55 @@
     <h2 class="section-title fade-up">Featured Projects</h2>
     <div class="projects-grid">
 
-      <!-- SOC SIMULATOR CARD - FLAGSHIP PROJECT (COMPACT) -->
-      <div class="project-card fade-up stagger-1" style="border: 3px solid #3b82f6; position: relative; overflow: hidden;">
-        <!-- Flagship Project Badge -->
-        <!-- Premium Glow Effect -->
-        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #3b82f6, #06b6d4, #3b82f6, transparent); animation: shimmer 3s ease-in-out infinite;"></div>
+      <!-- CLASSIC PONG GAME - FLAGSHIP PROJECT -->
+      <div class="project-card flagship-project fade-up stagger-1" style="border: 3px solid var(--retro-green); position: relative; overflow: hidden;">
+        <!-- Retro Glow Effect -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--retro-green), var(--retro-amber), var(--retro-green), transparent); animation: shimmer 3s ease-in-out infinite;"></div>
 
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #3b82f6, #06b6d4); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);">
-              🏢
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--retro-green), var(--retro-amber)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 8px 25px rgba(0, 255, 65, 0.3); animation: neonPulse 2s ease-in-out infinite;">
+              🕹️
             </div>
             <div style="flex: 1;">
-              <h3 class="project-title" style="margin-bottom: 0.3rem; font-size: 1.3rem;">CyberSim: Enterprise SOC Simulator</h3>
-              <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Professional Security Operations Center Training Platform</p>
+              <h3 class="project-title" style="margin-bottom: 0.3rem; font-size: 1.3rem; color: var(--retro-green);">Classic Pong Game</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Retro Gaming Meets Modern Development</p>
             </div>
           </div>
           <p class="project-description">
-            Enterprise-grade Security Operations Center simulator with real-time incident management, professional SIEM dashboard, and authentic cybersecurity scenarios. Features advanced threat detection workflows, interactive analytics, multi-priority incident triage, and comprehensive SOC analyst training modules.
+            Authentic recreation of the classic Pong arcade game featuring retro CRT-style aesthetics, intelligent AI with 4 difficulty levels, smooth paddle physics, mobile-responsive controls, and nostalgic scanline effects. Built with pure HTML5 Canvas and JavaScript for optimal performance.
             <br><br>
-            <strong style="color: var(--warning);">⚠️ Loading Issues?</strong> Try: Hard refresh (Ctrl+F5), wait 60 seconds, or check browser console (F12) for JavaScript errors.
+            <strong style="color: var(--retro-green);">🎮 Features:</strong> Multiple difficulty levels, mobile controls, retro visuals, smooth gameplay, and authentic 70s arcade experience with modern touches.
           </p>
         </div>
 
         <div class="project-tags">
-          <span class="tag" style="background: linear-gradient(45deg, #3b82f6, #06b6d4); color: white; font-weight: 600;">Enterprise SOC</span>
-          <span class="tag" style="background: linear-gradient(45deg, #ef4444, #f97316); color: white;">Incident Response</span>
-          <span class="tag">SIEM Dashboard</span>
-          <span class="tag">Real-time Analytics</span>
-          <span class="tag">Professional Training</span>
-          <span class="tag">Chart.js Visualization</span>
-          <span class="tag">MITRE ATT&CK</span>
-          <span class="tag">NIST Framework</span>
+          <span class="tag" style="background: linear-gradient(45deg, var(--retro-green), var(--retro-amber)); color: black; font-weight: 600;">Retro Gaming</span>
+          <span class="tag" style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white;">HTML5 Canvas</span>
+          <span class="tag">Game AI</span>
+          <span class="tag">Mobile Responsive</span>
+          <span class="tag">Pure JavaScript</span>
+          <span class="tag">Retro Aesthetics</span>
+          <span class="tag">Arcade Physics</span>
+          <span class="tag">CRT Effects</span>
         </div>
 
         <div class="project-links">
-          <a href="https://github.com/TheGhostPacket/cybersim-soc-simulator" target="_blank" class="project-link" style="flex: 1;">
-            <i class="fab fa-github"></i> Enterprise Code
+          <a href="https://github.com/TheGhostPacket/classic-pong-game" target="_blank" class="project-link" style="flex: 1;">
+            <i class="fab fa-github"></i> View Code
           </a>
-          <a href="https://theghostpacket.github.io/cybersim-soc-simulator/" target="_blank" class="project-link live" style="flex: 1; background: linear-gradient(45deg, #3b82f6, #06b6d4); position: relative; overflow: hidden;">
-            <i class="fas fa-shield-alt"></i> Launch SOC
-            <!-- Subtle animation on live button -->
-            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); animation: sweep 3s ease-in-out infinite;"></div>
+          <a href="#" onclick="openPongGame(); return false;" class="project-link live" style="flex: 1; background: linear-gradient(45deg, var(--retro-green), var(--retro-amber)); color: black; position: relative; overflow: hidden;">
+            <i class="fas fa-gamepad"></i> Play Game
+            <!-- Retro animation effect -->
+            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: sweep 3s ease-in-out infinite;"></div>
           </a>
         </div>
 
-        <!-- Award Recognition -->
-        <div style="margin-top: 1rem; padding: 0.8rem; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 193, 7, 0.1)); border: 1px solid rgba(255, 193, 7, 0.3); border-radius: 8px; text-align: center;">
-          <div style="color: #ffc107; font-weight: 600; font-size: 0.9rem;">
+        <!-- Flagship Recognition -->
+        <div style="margin-top: 1rem; padding: 0.8rem; background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), rgba(255, 170, 0, 0.1)); border: 1px solid rgba(0, 255, 65, 0.3); border-radius: 8px; text-align: center;">
+          <div style="color: var(--retro-green); font-weight: 600; font-size: 0.9rem;">
             <i class="fas fa-trophy" style="margin-right: 0.5rem;"></i>
-            Portfolio Flagship Project - Enterprise-Grade Cybersecurity Training Platform
+            Portfolio Flagship Project - Classic Retro Gaming Experience
           </div>
         </div>
       </div>
@@ -1136,7 +1267,7 @@
         </div>
       </div>
 
-      <!-- Red Team vs Blue Team - ELITE PROJECT (COMPACT) -->
+      <!-- Red Team vs Blue Team - Elite Project -->
       <div class="project-card fade-up stagger-1" style="border: 3px solid var(--red-team); position: relative; overflow: hidden;">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
@@ -1207,7 +1338,15 @@
       <!-- Enterprise AI Phishing Detector -->
       <div class="project-card fade-up stagger-2">
         <div class="project-header">
-          <h3 class="project-title">🚀 Enterprise AI Phishing Detector</h3>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🚀
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Enterprise AI Phishing Detector</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Machine Learning Security Tool</p>
+            </div>
+          </div>
           <p class="project-description">
             Advanced threat detection system with machine learning capabilities, real-time URL scanning, domain spoofing detection, and enterprise dashboard. Features live monitoring and AI-powered analysis.
           </p>
@@ -1231,7 +1370,15 @@
       <!-- Cybersecurity Analytics Dashboard -->
       <div class="project-card fade-up stagger-3">
         <div class="project-header">
-          <h3 class="project-title">🛡️ Cybersecurity Analytics Dashboard</h3>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #8b5cf6, #a855f7); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🛡️
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Cybersecurity Analytics Dashboard</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Log Analysis & Threat Monitoring</p>
+            </div>
+          </div>
           <p class="project-description">
             Comprehensive log analysis tool that detects failed login patterns, suspicious activities, and generates visual reports. Real-time monitoring with interactive charts and alerts.
           </p>
@@ -1286,7 +1433,7 @@
         </div>
       </div>
 
-      <!-- Malware Defense Game - NEW GAME (COMPACT) -->
+      <!-- Malware Defense Game -->
       <div class="project-card fade-up stagger-1" style="border: 2px solid var(--neon-green); position: relative; overflow: hidden;">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
@@ -1323,7 +1470,15 @@
       <!-- Advanced Password Strength Checker -->
       <div class="project-card fade-up stagger-4">
         <div class="project-header">
-          <h3 class="project-title">🔐 Advanced Password Strength Checker</h3>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #ef4444, #dc2626); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🔐
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Advanced Password Strength Checker</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Security Analysis Tool</p>
+            </div>
+          </div>
           <p class="project-description">
             Intelligent password security analyzer with real-time strength assessment, detailed feedback, and security recommendations. Features breach database checking and entropy calculation.
           </p>
@@ -1415,7 +1570,15 @@
       <!-- Intelligent VIN Checker Bot -->
       <div class="project-card fade-up stagger-1">
         <div class="project-header">
-          <h3 class="project-title">🤖 Intelligent VIN Checker Bot</h3>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #06b6d4, #0891b2); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🤖
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Intelligent VIN Checker Bot</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Telegram Automation Bot</p>
+            </div>
+          </div>
           <p class="project-description">
             Advanced Telegram bot for global vehicle identification with real-time VIN decoding, comprehensive vehicle data retrieval, and instant verification capabilities.
           </p>
@@ -1439,7 +1602,15 @@
       <!-- Advanced Port Scanner -->
       <div class="project-card fade-up stagger-2">
         <div class="project-header">
-          <h3 class="project-title">🕵️ Advanced Port Scanner</h3>
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #64748b, #475569); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              🕵️
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Advanced Port Scanner</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Network Reconnaissance Tool</p>
+            </div>
+          </div>
           <p class="project-description">
             High-performance network reconnaissance tool with multi-threading, service detection, and comprehensive reporting. Features stealth scanning and vulnerability identification.
           </p>
@@ -1588,7 +1759,7 @@
       </a>
       <a href="https://www.linkedin.com/in/nhyira-yanney-b19898178" target="_blank" class="social-link">
         <i class="fab fa-linkedin"></i>
-      </i>
+      </a>
       <a href="mailto:contact@theghostpacket.com" class="social-link">
         <i class="fas fa-envelope"></i>
       </a>
@@ -1607,6 +1778,19 @@
   </button>
 
   <script>
+    // Create floating particles
+    function createParticles() {
+      const container = document.querySelector('.floating-particles');
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 8 + 's';
+        particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+        container.appendChild(particle);
+      }
+    }
+
     // Typing animation
     const typedTextElement = document.getElementById('typed-text');
     const texts = [
@@ -1614,7 +1798,8 @@
       'Full-Stack Developer', 
       'Ethical Hacker',
       'Python Developer',
-      'Security Researcher'
+      'Security Researcher',
+      'Retro Game Developer'
     ];
     let textIndex = 0;
     let charIndex = 0;
@@ -1642,6 +1827,248 @@
       }
 
       setTimeout(typeText, typeSpeed);
+    }
+
+    // Open Pong Game function
+    function openPongGame() {
+      window.open('data:text/html;charset=utf-8,' + encodeURIComponent(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Classic Pong - TheGhostPacket</title>
+            <style>
+                * { margin: 0; padding: 0; box-sizing: border-box; }
+                body {
+                    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+                    font-family: 'Courier New', monospace;
+                    color: #00ff41;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100vh;
+                }
+                .game-container {
+                    background: #000;
+                    border: 3px solid #00ff41;
+                    border-radius: 10px;
+                    box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+                    position: relative;
+                    max-width: 90vw;
+                    max-height: 90vh;
+                }
+                #gameCanvas { display: block; background: #000; border-radius: 7px; }
+                .game-ui {
+                    position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
+                    text-align: center; z-index: 10;
+                }
+                .score {
+                    font-size: 2em; font-weight: bold; text-shadow: 0 0 10px #00ff41;
+                    margin-bottom: 10px;
+                }
+                .controls {
+                    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+                    text-align: center; font-size: 0.9em; opacity: 0.8;
+                }
+                .start-screen {
+                    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                    text-align: center; z-index: 20; background: rgba(0, 0, 0, 0.8);
+                    padding: 30px; border-radius: 10px; border: 2px solid #00ff41;
+                }
+                .start-screen h1 {
+                    font-size: 2.5em; margin-bottom: 20px; text-shadow: 0 0 20px #00ff41;
+                }
+                .difficulty-btn {
+                    background: transparent; color: #00ff41; border: 2px solid #00ff41;
+                    padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer;
+                    font-family: inherit; font-size: 1em; transition: all 0.3s ease;
+                }
+                .difficulty-btn:hover, .difficulty-btn.active {
+                    background: #00ff41; color: #000; box-shadow: 0 0 15px #00ff41;
+                }
+                .start-btn {
+                    background: #00ff41; color: #000; border: none; padding: 15px 30px;
+                    font-size: 1.2em; font-weight: bold; border-radius: 5px; cursor: pointer;
+                    font-family: inherit; transition: all 0.3s ease; margin-top: 20px;
+                }
+                .start-btn:hover { background: #00d435; box-shadow: 0 0 20px #00ff41; }
+                .mobile-controls {
+                    display: none; position: fixed; bottom: 20px; left: 50%;
+                    transform: translateX(-50%); gap: 20px;
+                }
+                .mobile-btn {
+                    background: rgba(0, 255, 65, 0.2); border: 2px solid #00ff41;
+                    color: #00ff41; padding: 15px 20px; border-radius: 5px;
+                    font-family: inherit; cursor: pointer; user-select: none;
+                    touch-action: manipulation;
+                }
+                @media (max-width: 768px) { .mobile-controls { display: flex; } .controls { bottom: 80px; } }
+                .retro-filter {
+                    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+                    background: repeating-linear-gradient(
+                        0deg, transparent, transparent 2px,
+                        rgba(0, 255, 65, 0.03) 2px, rgba(0, 255, 65, 0.03) 4px
+                    );
+                    pointer-events: none; border-radius: 7px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="game-container">
+                <canvas id="gameCanvas" width="800" height="400"></canvas>
+                <div class="game-ui">
+                    <div class="score"><span id="playerScore">0</span> - <span id="aiScore">0</span></div>
+                </div>
+                <div class="controls">Desktop: W/S or ↑/↓ keys | Mobile: Use buttons below</div>
+                <div class="start-screen" id="startScreen">
+                    <h1>CLASSIC PONG</h1>
+                    <p>First to 10 points wins!</p>
+                    <div class="difficulty-selector">
+                        <p>Select Difficulty:</p>
+                        <button class="difficulty-btn active" data-difficulty="easy">Easy</button>
+                        <button class="difficulty-btn" data-difficulty="medium">Medium</button>
+                        <button class="difficulty-btn" data-difficulty="hard">Hard</button>
+                        <button class="difficulty-btn" data-difficulty="impossible">Impossible</button>
+                    </div>
+                    <button class="start-btn" onclick="startGame()">START GAME</button>
+                </div>
+                <div class="mobile-controls">
+                    <button class="mobile-btn" id="upBtn">↑ UP</button>
+                    <button class="mobile-btn" id="downBtn">↓ DOWN</button>
+                </div>
+                <div class="retro-filter"></div>
+            </div>
+            <script>
+                const canvas = document.getElementById('gameCanvas');
+                const ctx = canvas.getContext('2d');
+                let gameRunning = false, difficulty = 'easy', keys = {};
+                
+                const ball = { x: 400, y: 200, dx: 5, dy: 3, radius: 8, speed: 5 };
+                const player = { x: 20, y: 150, width: 15, height: 100, speed: 6, score: 0 };
+                const ai = { x: 765, y: 150, width: 15, height: 100, speed: 4, score: 0 };
+                
+                const difficultySettings = {
+                    easy: { aiSpeed: 3, aiAccuracy: 0.7 },
+                    medium: { aiSpeed: 4.5, aiAccuracy: 0.85 },
+                    hard: { aiSpeed: 6, aiAccuracy: 0.95 },
+                    impossible: { aiSpeed: 8, aiAccuracy: 1.0 }
+                };
+                
+                document.addEventListener('keydown', (e) => keys[e.key] = true);
+                document.addEventListener('keyup', (e) => keys[e.key] = false);
+                
+                const upBtn = document.getElementById('upBtn');
+                const downBtn = document.getElementById('downBtn');
+                
+                upBtn.addEventListener('touchstart', (e) => { e.preventDefault(); keys['ArrowUp'] = true; });
+                upBtn.addEventListener('touchend', (e) => { e.preventDefault(); keys['ArrowUp'] = false; });
+                downBtn.addEventListener('touchstart', (e) => { e.preventDefault(); keys['ArrowDown'] = true; });
+                downBtn.addEventListener('touchend', (e) => { e.preventDefault(); keys['ArrowDown'] = false; });
+                
+                document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        document.querySelectorAll('.difficulty-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        difficulty = btn.dataset.difficulty;
+                    });
+                });
+                
+                function startGame() {
+                    document.getElementById('startScreen').style.display = 'none';
+                    gameRunning = true;
+                    ai.speed = difficultySettings[difficulty].aiSpeed;
+                    resetPositions();
+                    gameLoop();
+                }
+                
+                function resetPositions() {
+                    ball.x = 400; ball.y = 200;
+                    ball.dx = Math.random() > 0.5 ? ball.speed : -ball.speed;
+                    ball.dy = (Math.random() - 0.5) * ball.speed;
+                    player.y = ai.y = 150;
+                }
+                
+                function updatePlayer() {
+                    if (keys['w'] || keys['W'] || keys['ArrowUp']) player.y -= player.speed;
+                    if (keys['s'] || keys['S'] || keys['ArrowDown']) player.y += player.speed;
+                    player.y = Math.max(0, Math.min(player.y, canvas.height - player.height));
+                }
+                
+                function updateAI() {
+                    const settings = difficultySettings[difficulty];
+                    const targetY = Math.random() > settings.aiAccuracy ? 
+                        ball.y + (Math.random() - 0.5) * 100 : ball.y;
+                    const paddleCenter = ai.y + ai.height / 2;
+                    
+                    if (paddleCenter < targetY - 10) ai.y += ai.speed;
+                    else if (paddleCenter > targetY + 10) ai.y -= ai.speed;
+                    
+                    ai.y = Math.max(0, Math.min(ai.y, canvas.height - ai.height));
+                }
+                
+                function updateBall() {
+                    ball.x += ball.dx; ball.y += ball.dy;
+                    
+                    if (ball.y <= ball.radius || ball.y >= canvas.height - ball.radius) ball.dy = -ball.dy;
+                    
+                    if (ball.x <= player.x + player.width && ball.y >= player.y && ball.y <= player.y + player.height) {
+                        ball.dx = -ball.dx; ball.x = player.x + player.width + ball.radius;
+                        const hitPos = (ball.y - player.y) / player.height;
+                        ball.dy = ball.speed * (hitPos - 0.5) * 2;
+                    }
+                    
+                    if (ball.x >= ai.x && ball.y >= ai.y && ball.y <= ai.y + ai.height) {
+                        ball.dx = -ball.dx; ball.x = ai.x - ball.radius;
+                        const hitPos = (ball.y - ai.y) / ai.height;
+                        ball.dy = ball.speed * (hitPos - 0.5) * 2;
+                    }
+                    
+                    if (ball.x < 0) { 
+                        ai.score++; 
+                        document.getElementById('aiScore').textContent = ai.score; 
+                        resetPositions(); 
+                        if (ai.score >= 10) endGame('AI Wins!');
+                    }
+                    if (ball.x > canvas.width) { 
+                        player.score++; 
+                        document.getElementById('playerScore').textContent = player.score; 
+                        resetPositions(); 
+                        if (player.score >= 10) endGame('You Win!');
+                    }
+                }
+                
+                function endGame(winner) {
+                    gameRunning = false;
+                    alert(winner + ' Final Score: You ' + player.score + ' - ' + ai.score + ' AI');
+                    setTimeout(() => location.reload(), 1000);
+                }
+                
+                function draw() {
+                    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.strokeStyle = '#00ff41'; ctx.setLineDash([10, 15]);
+                    ctx.beginPath(); ctx.moveTo(400, 0); ctx.lineTo(400, 400); ctx.stroke();
+                    ctx.setLineDash([]);
+                    
+                    ctx.fillStyle = '#00ff41';
+                    ctx.fillRect(player.x, player.y, player.width, player.height);
+                    ctx.fillRect(ai.x, ai.y, ai.width, ai.height);
+                    
+                    ctx.beginPath(); ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2); ctx.fill();
+                }
+                
+                function gameLoop() {
+                    if (!gameRunning) return;
+                    updatePlayer(); updateAI(); updateBall(); draw();
+                    requestAnimationFrame(gameLoop);
+                }
+                
+                draw();
+            </script>
+        </body>
+        </html>
+      `), '_blank');
     }
 
     // Scroll animations
@@ -1715,7 +2142,7 @@
       }
     }
 
-    // Load saved theme
+    // Load saved theme and initialize
     window.addEventListener('load', () => {
       const savedTheme = localStorage.getItem('theme');
       const themeButton = document.querySelector('.theme-toggle i');
@@ -1726,6 +2153,9 @@
       } else {
         themeButton.className = 'fas fa-moon';
       }
+      
+      // Create floating particles
+      createParticles();
       
       // Start typing animation
       setTimeout(typeText, 1000);
