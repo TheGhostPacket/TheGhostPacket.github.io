@@ -32,6 +32,16 @@
       100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
     }
 
+    /* Gas Station Bot specific animation */
+    @keyframes gasStationGlow {
+      0%, 100% { 
+        box-shadow: 0 0 5px #f59e0b, 0 0 10px #f59e0b, 0 0 20px #f59e0b;
+      }
+      50% { 
+        box-shadow: 0 0 10px #f59e0b, 0 0 20px #f59e0b, 0 0 30px #f59e0b;
+      }
+    }
+
     /* Enhanced hover effect for flagship projects */
     .flagship-project:hover {
       transform: translateY(-12px) scale(1.02) !important;
@@ -917,7 +927,7 @@
     <!-- Stats -->
     <div class="stats-grid">
       <div class="stat-card">
-        <span class="stat-number">14+</span>
+        <span class="stat-number">15+</span>
         <span class="stat-label">Projects Completed</span>
       </div>
       <div class="stat-card">
@@ -1052,6 +1062,13 @@
           <i class="fas fa-tools"></i> Automation & Bots
         </h3>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="skill-item">
+            <i class="fas fa-gas-pump skill-icon" style="color: #f59e0b;"></i>
+            <div>
+              <strong>Gas Station Finder Bot</strong>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Intelligent location discovery with Google Places API</p>
+            </div>
+          </div>
           <div class="skill-item">
             <i class="fab fa-telegram skill-icon"></i>
             <div>
@@ -1200,9 +1217,6 @@
         </div>
       </div>
 
-
-          <!-- Add this project card to your portfolio's projects section -->
-      
       <!-- CyberCTF Platform - FLAGSHIP PROJECT -->
       <div class="project-card" style="position: relative; overflow: hidden;">
       
@@ -1240,9 +1254,8 @@
           </a>
         </div>
       </div>
-      
 
-            <!-- SSH Security Monitor - Add this to your projects grid -->
+      <!-- SSH Security Monitor - Add this to your projects grid -->
       <div class="project-card" style="position: relative; overflow: hidden;">
         
         <div class="project-header">
@@ -1314,7 +1327,6 @@
           </a>
         </div>
       </div>
-            
 
       <!-- Hash Cracker Educational Platform -->
       <div class="project-card" style="border: 2px solid var(--primary);">
@@ -1651,6 +1663,40 @@
         </div>
       </div>
 
+      <!-- Gas Station Finder Bot -->
+      <div class="project-card">
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+              ⛽
+            </div>
+            <div>
+              <h3 class="project-title" style="margin-bottom: 0.2rem;">Gas Station Finder Bot</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem;">Intelligent Location Discovery Bot</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Advanced Telegram bot for real-time gas station discovery using Google Places API. Features multi-format search (ZIP, state, city+state), smart caching system, professional deployment with Docker, and cost-optimized API usage with rate limiting.
+          </p>
+        </div>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Telegram Bot</span>
+          <span class="tag">Google Places API</span>
+          <span class="tag">Smart Caching</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Cloud Deployment</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/gas-station-finder-bot" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a href="https://t.me/your_gas_station_bot" target="_blank" class="project-link live">
+            <i class="fas fa-external-link-alt"></i> Try Bot
+          </a>
+        </div>
+      </div>
+
       <!-- Intelligent VIN Checker Bot -->
       <div class="project-card">
         <div class="project-header">
@@ -1682,8 +1728,6 @@
           </a>
         </div>
       </div>
-
-      <!-- Replace your current "Advanced Port Scanner" project card with this enhanced version -->
 
       <!-- Advanced Port Scanner - ENHANCED VERSION -->
       <div class="project-card" style="position: relative; overflow: hidden;">
@@ -1723,42 +1767,6 @@
           </a>
         </div>
       </div>
-
-
-              <!-- Gas Station Finder Bot - Add this after the VIN Checker Bot project card -->
-      <div class="project-card">
-        <div class="project-header">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
-              ⛽
-            </div>
-            <div>
-              <h3 class="project-title" style="margin-bottom: 0.2rem;">Gas Station Finder Bot</h3>
-              <p style="color: var(--text-muted); font-size: 0.9rem;">Intelligent Location Discovery Bot</p>
-            </div>
-          </div>
-          <p class="project-description">
-            Advanced Telegram bot for real-time gas station discovery using Google Places API. Features multi-format search (ZIP, state, city+state), smart caching system, professional deployment with Docker, and cost-optimized API usage with rate limiting.
-          </p>
-        </div>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Telegram Bot</span>
-          <span class="tag">Google Places API</span>
-          <span class="tag">Smart Caching</span>
-          <span class="tag">Docker</span>
-          <span class="tag">Cloud Deployment</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/TheGhostPacket/gas-station-finder-bot" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> Code
-          </a>
-          <a href="https://t.me/fuel_station_finder_bot" target="_blank" class="project-link live">
-            <i class="fas fa-external-link-alt"></i> Try Bot
-          </a>
-        </div>
-      </div>
-      
       
       <!-- IP Geolocation Tracker -->
       <div class="project-card">
@@ -1896,7 +1904,8 @@
       'Ethical Hacker',
       'Python Developer',
       'Security Researcher',
-      'Retro Game Developer'
+      'Retro Game Developer',
+      'Bot Developer'
     ];
     let textIndex = 0;
     let charIndex = 0;
@@ -2073,3 +2082,4 @@
   </script>
 </body>
 </html>
+      });
