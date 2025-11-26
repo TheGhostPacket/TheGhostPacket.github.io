@@ -6,6 +6,8 @@
   <title>TheGhostPacket | Cybersecurity Portfolio</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👻</text></svg>">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!-- PayPal SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=AT_LT87jwO5G8lZwBxQJsPhYFdA1rB9ubOzNiAwVf5nT-fY7N6hTuQL4yr8QS2ACcJ_ZZKV36DJoAGM0&currency=USD"></script>
   <style>
     /* Enhanced animations */
     @keyframes shimmer {
@@ -784,6 +786,59 @@
     .section {
       min-height: 200px;
     }
+
+          /* PayPal Donation Section Styles */
+    .donation-amount-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .amount-btn {
+      padding: 1rem;
+      border: 2px solid var(--border);
+      background: var(--bg-card);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    
+    .amount-btn:hover {
+      border-color: var(--primary);
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .amount-btn.selected {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: white;
+    }
+    
+    .custom-amount-input {
+      padding: 1rem;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    
+    .custom-amount-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
   </style>
 </head>
 <body>
@@ -799,6 +854,7 @@
         <li><a href="#skills" class="nav-link">Portfolio</a></li>
         <li><a href="#certifications" class="nav-link">Certifications</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#support" class="nav-link">Support</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </div>
@@ -1997,6 +2053,53 @@
     </div>
   </section>
 
+
+        <!-- Support Section -->
+  <section class="section" id="support" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(8, 145, 178, 0.05));">
+    <h2 class="section-title">Support My Journey</h2>
+    <div class="card" style="max-width: 700px; margin: 0 auto; text-align: center;">
+      <span style="font-size: 4rem; display: block; margin-bottom: 1rem;">☕</span>
+      <h3 style="margin-bottom: 1rem; color: var(--primary); font-size: 1.8rem;">Buy Me a Coffee</h3>
+      <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.8;">
+        If you find my cybersecurity projects helpful or want to support my learning journey, 
+        consider buying me a coffee! Every contribution helps me continue building educational 
+        security tools and advancing my skills.
+      </p>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 2rem;">
+        🎓 Currently studying for CompTIA Security+ certification<br>
+        🛡️ Building hands-on cybersecurity training platforms<br>
+        🚀 Creating educational security games and tools
+      </p>
+      
+      <!-- Preset Amount Buttons -->
+      <div class="donation-amount-grid">
+        <button class="amount-btn" onclick="selectAmount(3)">$3<br><small>☕</small></button>
+        <button class="amount-btn selected" onclick="selectAmount(5)">$5<br><small>☕☕</small></button>
+        <button class="amount-btn" onclick="selectAmount(10)">$10<br><small>🎉</small></button>
+        <button class="amount-btn" onclick="selectAmount(25)">$25<br><small>🚀</small></button>
+      </div>
+      
+      <!-- Custom Amount -->
+      <div style="margin: 1.5rem 0;">
+        <label style="display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Or enter custom amount:</label>
+        <input type="number" id="customAmount" class="custom-amount-input" placeholder="Enter amount ($)" min="1" step="0.01" />
+      </div>
+      
+      <!-- PayPal Button Container -->
+      <div id="paypal-donate-button-container" style="max-width: 400px; margin: 2rem auto;"></div>
+      
+      <!-- Thank You Message -->
+      <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+          <i class="fas fa-heart" style="color: #dc2626;"></i> Thank you for your support!
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">
+          Your contributions help cover hosting costs, certification expenses, and lab equipment for security research.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section class="section" id="contact">
     <h2 class="section-title">Let's Connect</h2>
@@ -2243,6 +2346,92 @@
         });
       }
     });
+
+
+        // ========== PAYPAL DONATION FUNCTIONALITY ==========
+    
+    // Global variable to track selected amount
+    let selectedAmount = 5.00;
+    
+    // Amount selection function
+    function selectAmount(amount) {
+      selectedAmount = amount;
+      
+      // Update button states
+      document.querySelectorAll('.amount-btn').forEach(btn => {
+        btn.classList.remove('selected');
+      });
+      event.target.closest('.amount-btn').classList.add('selected');
+      
+      // Clear custom input
+      document.getElementById('customAmount').value = '';
+      
+      // Re-render PayPal button with new amount
+      renderPayPalButton();
+    }
+    
+    // Render PayPal Button
+    function renderPayPalButton() {
+      const container = document.getElementById('paypal-donate-button-container');
+      if (!container) return;
+      
+      container.innerHTML = '';
+    
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              description: 'Support TheGhostPacket - Cybersecurity Education',
+              amount: {
+                value: selectedAmount.toFixed(2)
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('🎉 Thank you so much, ' + details.payer.name.given_name + '! Your support means the world to me and helps me continue building educational cybersecurity tools.');
+          });
+        },
+        onError: function(err) {
+          console.error('PayPal error:', err);
+          alert('Oops! Something went wrong. Please try again!');
+        },
+        style: {
+          layout: 'vertical',
+          color: 'blue',
+          shape: 'rect',
+          label: 'donate',
+          height: 45
+        }
+      }).render('#paypal-donate-button-container');
+    }
+    
+    // Add custom amount handler - FIND YOUR EXISTING DOMContentLoaded AND ADD THIS INSIDE
+    document.addEventListener('DOMContentLoaded', function() {
+      // ... your existing code ...
+      
+      // Add this for custom amount input
+      const customInput = document.getElementById('customAmount');
+      if (customInput) {
+        customInput.addEventListener('input', function() {
+          if (this.value && this.value > 0) {
+            selectedAmount = parseFloat(this.value);
+            
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+              btn.classList.remove('selected');
+            });
+            
+            renderPayPalButton();
+          }
+        });
+      }
+      
+      // Initial render of PayPal button
+      renderPayPalButton();
+    });
+
+    
   </script>
 </body>
 </html>
