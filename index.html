@@ -10,10 +10,12 @@
   <script src="https://www.paypal.com/sdk/js?client-id=AdFjRV4G7J-aefifW5b0jB-DWWDdXBZqmSCelV_4GUNiyE5Pa2GO2bnLCXAB7n2Wsn05lLT3HLtWKOg8&currency=USD"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
    <script type="text/javascript">
-     (function(){
-       emailjs.init("bOWwEgXzrmnE1D_RK"); // Replace with your actual public key!
-     })();
-  <style>
+  (function(){
+    emailjs.init("bOWwEgXzrmnE1D_RK");
+  })();
+</script>
+
+<style>
     /* Enhanced animations */
     @keyframes shimmer {
       0% { transform: translateX(-100%); }
@@ -2454,12 +2456,43 @@
       );
       
       // Show success message
-      alert('🎉 Thank you so much, ' + details.payer.name.given_name + '! Your support means the world to me. Check your email for a receipt!');
+           alert('🎉 Thank you so much, ' + details.payer.name.given_name + '! Your support means the world to me. Check your email for a receipt!');
+            
+          });
+        },
+        
+        onError: function(err) {
+          console.error('PayPal error:', err);
+          alert('Oops! Something went wrong. Please try again!');
+        },
+        
+        style: {
+          layout: 'vertical',
+          color: 'blue',
+          shape: 'rect',
+          label: 'donate',
+          height: 45
+        }
+      }).render('#paypal-donate-button-container');
+      }
       
-    });
-  },
-
-    
-  </script>
-</body>
-</html>
+      const customInput = document.getElementById('customAmount');
+      if (customInput) {
+        customInput.addEventListener('input', function() {
+          if (this.value && this.value > 0) {
+            selectedAmount = parseFloat(this.value);
+            document.querySelectorAll('.amount-btn').forEach(btn => {
+              btn.classList.remove('selected');
+            });
+            renderPayPalButton();
+          }
+        });
+      }
+      
+      renderPayPalButton();
+      
+      });
+      
+        </script>
+      </body>
+      </html>
