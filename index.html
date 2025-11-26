@@ -8,6 +8,11 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <!-- PayPal SDK -->
   <script src="https://www.paypal.com/sdk/js?client-id=AdFjRV4G7J-aefifW5b0jB-DWWDdXBZqmSCelV_4GUNiyE5Pa2GO2bnLCXAB7n2Wsn05lLT3HLtWKOg8&currency=USD"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+   <script type="text/javascript">
+     (function(){
+       emailjs.init("bOWwEgXzrmnE1D_RK"); // Replace with your actual public key!
+     })();
   <style>
     /* Enhanced animations */
     @keyframes shimmer {
@@ -2388,48 +2393,71 @@
             }]
           });
         },
+          
+        
+        
         onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            alert('🎉 Thank you so much, ' + details.payer.name.given_name + '! Your support means the world to me and helps me continue building educational cybersecurity tools.');
-          });
-        },
-        onError: function(err) {
-          console.error('PayPal error:', err);
-          alert('Oops! Something went wrong. Please try again!');
-        },
-        style: {
-          layout: 'vertical',
-          color: 'blue',
-          shape: 'rect',
-          label: 'donate',
-          height: 45
+    return actions.order.capture().then(function(details) {
+      
+      // Get donor information
+      const donorName = details.payer.name.given_name + ' ' + details.payer.name.surname;
+      const donorEmail = details.payer.email_address;
+      const amount = details.purchase_units[0].amount.value;
+      const transactionId = details.id;
+      const date = new Date().toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      
+      // Send thank you email to donor
+      emailjs.send(
+        'service_c5c4fy5',           // ⭐ Replace with your Service ID
+        'template_wofdybk',    // ⭐ Replace with Template 1 ID
+        {
+          to_name: details.payer.name.given_name,
+          to_email: donorEmail,
+          amount: amount,
+          transaction_id: transactionId,
+          date: date
         }
-      }).render('#paypal-donate-button-container');
-    }
-    
-    // Add custom amount handler - FIND YOUR EXISTING DOMContentLoaded AND ADD THIS INSIDE
-    document.addEventListener('DOMContentLoaded', function() {
-      // ... your existing code ...
+      ).then(
+        function(response) {
+          console.log('Thank you email sent!', response.status);
+        },
+        function(error) {
+          console.log('Failed to send thank you email...', error);
+        }
+      );
       
-      // Add this for custom amount input
-      const customInput = document.getElementById('customAmount');
-      if (customInput) {
-        customInput.addEventListener('input', function() {
-          if (this.value && this.value > 0) {
-            selectedAmount = parseFloat(this.value);
-            
-            document.querySelectorAll('.amount-btn').forEach(btn => {
-              btn.classList.remove('selected');
-            });
-            
-            renderPayPalButton();
-          }
-        });
-      }
+      // Send notification email to you
+      emailjs.send(
+        'service_c5c4fy5',               // ⭐ Same Service ID as above
+        'template_4b320bd', // ⭐ Replace with Template 2 ID
+        {
+          donor_name: donorName,
+          donor_email: donorEmail,
+          amount: amount,
+          transaction_id: transactionId,
+          date: date,
+          to_email: 'support@theghostpacket.com'
+        }
+      ).then(
+        function(response) {
+          console.log('Notification email sent!', response.status);
+        },
+        function(error) {
+          console.log('Failed to send notification...', error);
+        }
+      );
       
-      // Initial render of PayPal button
-      renderPayPalButton();
+      // Show success message
+      alert('🎉 Thank you so much, ' + details.payer.name.given_name + '! Your support means the world to me. Check your email for a receipt!');
+      
     });
+  },
 
     
   </script>
