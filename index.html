@@ -2334,6 +2334,14 @@
             }]
           });
         },
+
+
+              // ⭐ ADD THIS LINE TO ENABLE APPLE PAY ⭐
+          enableFunding: [paypal.FUNDING.APPLE_PAY],
+          
+          onApprove: function(data, actions) {
+            // ... your existing email code ...
+          },
         
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(details) {
