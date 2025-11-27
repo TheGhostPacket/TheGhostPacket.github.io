@@ -2323,7 +2323,10 @@
       
       container.innerHTML = '';
     
+      // PayPal Button
       paypal.Buttons({
+        fundingSource: paypal.FUNDING.PAYPAL,
+        
         createOrder: function(data, actions) {
           return actions.order.create({
             purchase_units: [{
@@ -2334,11 +2337,7 @@
             }]
           });
         },
-      
-        // Enable Apple Pay
-        enableFunding: [paypal.FUNDING.APPLE_PAY],
         
-        // Only ONE onApprove function
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(details) {
             
@@ -2414,6 +2413,91 @@
           label: 'donate',
           height: 45
         }
+      }).render('#paypal-donate-button-container');
+      
+      // Apple Pay Button (separate instance)
+      paypal.Buttons({
+        fundingSource: paypal.FUNDING.APPLE_PAY,
+        
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              description: 'Support TheGhostPacket - Cybersecurity Education',
+              amount: {
+                value: selectedAmount.toFixed(2)
+              }
+            }]
+          });
+        },
+        
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            
+            // Get donor information
+            const donorName = details.payer.name.given_name + ' ' + details.payer.name.surname;
+            const donorEmail = details.payer.email_address;
+            const amount = details.purchase_units[0].amount.value;
+            const transactionId = details.id;
+            const date = new Date().toLocaleDateString('en-US', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            });
+            
+            // Send thank you email to donor
+            emailjs.send(
+              'service_c5c4fy5',
+              'template_wofdybk',
+              {
+                to_name: details.payer.name.given_name,
+                to_email: donorEmail,
+                amount: amount,
+                transaction_id: transactionId,
+                date: date
+              }
+            ).then(
+              function(response) {
+                console.log('✅ Thank you email sent!', response.status);
+              },
+              function(error) {
+                console.log('❌ Failed to send thank you email:', error);
+              }
+            );
+            
+            // Send notification email to you
+            emailjs.send(
+              'service_c5c4fy5',
+              'template_4b320bd',
+              {
+                donor_name: donorName,
+                donor_email: donorEmail,
+                amount: amount,
+                transaction_id: transactionId,
+                date: date,
+                to_email: 'support@theghostpacket.com'
+              }
+            ).then(
+              function(response) {
+                console.log('✅ Notification email sent!', response.status);
+              },
+              function(error) {
+                console.log('❌ Failed to send notification:', error);
+              }
+            );
+            
+            // Show success message
+            alert('🎉 Thank you so much, ' + details.payer.name.given_name + '! Your support means the world to me. Check your email for a receipt!');
+            
+          });
+        },
+        
+        onError: function(err) {
+          console.error('Apple Pay error:', err);
+          alert('Oops! Something went wrong with Apple Pay. Please try regular PayPal!');
+        }
+        
       }).render('#paypal-donate-button-container');
     }
 
