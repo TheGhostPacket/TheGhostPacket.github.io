@@ -1,0 +1,41 @@
+# Environment variables - just in case you need them in future
+.env
+.env.local
+.env.production
+
+# API secrets - just in case
+secrets.js
+config.local.js
+api-keys.txt
+
+# Keys and certificates
+*.pem
+*.key
+*.p12
+
+# OS files
+.DS_Store
+Thumbs.db
+.DS_Store?
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (if you ever use npm)
+node_modules/
+
+# Build files
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+.tmp/
+temp/
