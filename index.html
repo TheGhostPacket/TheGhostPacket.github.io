@@ -845,6 +845,12 @@
       outline: none;
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      
+    }
+   
+    /* Show More Projects Button */
+    .project-item.hidden {
+      display: none !important;
     }
     
   </style>
@@ -895,7 +901,7 @@
   <h2 class="section-title">Currently Learning</h2>
   <div class="projects-grid">
     
-    <div class="project-card">
+    <div class="project-card project-item">
       <div class="project-header">
         <h3 class="project-title">🎯 CompTIA Security+</h3>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Expected: Q2 2025</p>
@@ -910,7 +916,7 @@
       </div>
     </div>
 
-    <div class="project-card">
+    <div class="project-card project-item">
       <div class="project-header">
         <h3 class="project-title">🐧 Linux System Administration</h3>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Ongoing</p>
@@ -925,7 +931,7 @@
       </div>
     </div>
 
-    <div class="project-card">
+    <div class="project-card project-item">
       <div class="project-header">
         <h3 class="project-title">🔐 Ethical Hacking & Penetration Testing</h3>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Ongoing</p>
@@ -1233,7 +1239,7 @@
     <div class="projects-grid">
 
 
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🎓</span>
@@ -1259,7 +1265,7 @@
       </div>
 
       
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">💳</span>
@@ -1284,7 +1290,7 @@
       </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🏢</span>
@@ -1309,7 +1315,7 @@
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem;">
             <span style="font-size: 3rem;">🛡️</span>
@@ -1450,8 +1456,86 @@
       </div>
 
 
+      <!-- PROJECT 1: Security Log Analyzer v2.5 - NEW FLAGSHIP -->
+      <div class="project-card project-item flagship-project" style="position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #059669, #047857); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; z-index: 2;">🆕 New!</div>
+        
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <span style="font-size: 3rem;">🔍</span>
+            <div style="flex: 1;">
+              <h3 class="project-title" style="margin-bottom: 0.3rem; font-size: 1.3rem;">Security Log Analyzer v2.5 Enhanced</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Enterprise Threat Detection & Analysis Platform</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Professional log analysis platform with multi-source threat intelligence (AbuseIPDB, Shodan, IPInfo), real-time attack timeline visualization, detailed risk score breakdowns, and automated firewall rule generation. Features realistic attack scenarios, detects SQL injection, XSS, brute force, and Log4Shell attacks.
+          </p>
+        </div>
+
+        <div class="project-tags">
+          <span class="tag">Threat Intelligence</span>
+          <span class="tag">Log Analysis</span>
+          <span class="tag">Python Flask</span>
+          <span class="tag">Attack Timeline</span>
+          <span class="tag">Risk Scoring</span>
+          <span class="tag">Firewall Automation</span>
+          <span class="tag">Multi-API Integration</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/security-log-analyzer" target="_blank" class="project-link" style="flex: 1;">
+            <i class="fab fa-github"></i> View Code
+          </a>
+          <a href="https://security-log-analyzer.onrender.com" target="_blank" class="project-link live">
+            <i class="fas fa-shield-alt"></i> Live Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 2: Malware Hash Checker - NEW FLAGSHIP -->
+      <div class="project-card project-item flagship-project" style="position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 15px; right: 15px; background: linear-gradient(135deg, #059669, #047857); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; z-index: 2;">🆕 New!</div>
+        
+        <div class="project-header">
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+            <span style="font-size: 3rem;">🦠</span>
+            <div style="flex: 1;">
+              <h3 class="project-title" style="margin-bottom: 0.3rem; font-size: 1.3rem;">Malware Hash Checker</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Multi-Source Threat Intelligence Platform</p>
+            </div>
+          </div>
+          <p class="project-description">
+            Professional malware analysis platform integrating VirusTotal, Hybrid Analysis, and MalwareBazaar APIs. Features comprehensive hash checking (MD5, SHA1, SHA256), threat intelligence aggregation, detailed vendor analysis, behavioral indicators, and professional security reporting for incident response teams.
+          </p>
+        </div>
+
+        <div class="project-tags">
+          <span class="tag">Malware Analysis</span>
+          <span class="tag">Threat Intelligence</span>
+          <span class="tag">Python Flask</span>
+          <span class="tag">Multi-API Integration</span>
+          <span class="tag">Hash Analysis</span>
+          <span class="tag">Security Reporting</span>
+          <span class="tag">Incident Response</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/TheGhostPacket/malware-hash-checker" target="_blank" class="project-link" style="flex: 1;">
+            <i class="fab fa-github"></i> View Code
+          </a>
+          <a href="https://malware-hash-checker.onrender.com" target="_blank" class="project-link live">
+            <i class="fas fa-virus"></i> Live Demo
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 3: CLASSIC PONG GAME - FLAGSHIP PROJECT -->
+
+      
+
                     <!-- Network Minesweeper -->
-        <div class="project-card">
+        <div class="project-card project-item">
           <div class="project-header">
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
               <span style="font-size: 3rem;">💣</span>
@@ -1482,7 +1566,7 @@
         </div>
         
         <!-- Hacker Typing Defense -->
-        <div class="project-card">
+        <div class="project-card project-item">
           <div class="project-header">
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
               <span style="font-size: 3rem;">⌨️</span>
@@ -1513,7 +1597,7 @@
         </div>
         
         <!-- Cyber Tetris -->
-        <div class="project-card">
+        <div class="project-card project-item">
           <div class="project-header">
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
               <span style="font-size: 3rem;">🧩</span>
@@ -1545,7 +1629,7 @@
             
 
       <!-- Active Directory Security Lab - FLAGSHIP PROJECT -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🛡️</span>
@@ -1581,7 +1665,7 @@
       </div>
       
       <!-- Personal Finance Tracker -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">💰</span>
@@ -1678,7 +1762,7 @@
       </div>
 
       <!-- Snake vs AI Game -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🐍</span>
@@ -1710,7 +1794,7 @@
       </div>
 
       <!-- Enterprise AI Phishing Detector -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🚀</span>
@@ -1740,7 +1824,7 @@
       </div>
 
       <!-- Cybersecurity Analytics Dashboard -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🛡️</span>
@@ -1770,7 +1854,7 @@
       </div>
 
       <!-- Cyber Detective: Password Breaker -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🕵️</span>
@@ -1834,7 +1918,7 @@
       </div>
 
       <!-- Advanced Password Strength Checker -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🔐</span>
@@ -1864,7 +1948,7 @@
       </div>
 
       <!-- Password Generator & Analyzer -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🔐</span>
@@ -1896,7 +1980,7 @@
       </div>
 
       <!-- Network Health Checker -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🌐</span>
@@ -1928,7 +2012,7 @@
       </div>
 
       <!-- Gas Station Bot -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">⛽</span>
@@ -1960,7 +2044,7 @@
       </div>
 
       <!-- Intelligent VIN Checker Bot -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🤖</span>
@@ -2027,7 +2111,7 @@
       </div>
       
       <!-- IP Geolocation Tracker -->
-      <div class="project-card">
+      <div class="project-card project-item">
         <div class="project-header">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
             <span style="font-size: 3rem;">🌍</span>
@@ -2058,6 +2142,13 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- Show More Button -->
+    <div style="text-align: center; margin-top: 3rem;">
+      <button id="showMoreBtn" class="btn btn-primary" onclick="toggleProjects()" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+        <i class="fas fa-chevron-down"></i> Show More Projects (<span id="hiddenCount">0</span>)
+      </button>
     </div>
   </section>
 
@@ -2504,6 +2595,7 @@
 
     // Initialize everything when DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
+      initializeProjects();
       // Initialize components
       createParticles();
       initScrollAnimations();
@@ -2579,6 +2671,63 @@
       renderPayPalButton();
       
     });
+
+    // Show More Projects Functionality
+    let projectsExpanded = false;
+    
+    function toggleProjects() {
+      const allProjects = document.querySelectorAll('.project-item');
+      const btn = document.getElementById('showMoreBtn');
+      
+      if (!projectsExpanded) {
+        // Show all projects
+        allProjects.forEach((project, index) => {
+          if (index >= 6) {
+            project.classList.remove('hidden');
+            project.style.animation = 'fadeIn 0.5s ease-out';
+          }
+        });
+        
+        btn.innerHTML = '<i class="fas fa-chevron-up"></i> Show Less Projects';
+        projectsExpanded = true;
+      } else {
+        // Hide projects after 6th
+        allProjects.forEach((project, index) => {
+          if (index >= 6) {
+            project.classList.add('hidden');
+          }
+        });
+        
+        const hiddenCount = document.querySelectorAll('.project-item.hidden').length;
+        btn.innerHTML = `<i class="fas fa-chevron-down"></i> Show More Projects (${hiddenCount})`;
+        projectsExpanded = false;
+        
+        // Scroll to projects section
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    
+    // Initialize - hide projects after 6th on page load
+    function initializeProjects() {
+      const allProjects = document.querySelectorAll('.project-item');
+      allProjects.forEach((project, index) => {
+        if (index >= 6) {
+          project.classList.add('hidden');
+        }
+      });
+      
+      // Update button count
+      const hiddenCount = document.querySelectorAll('.project-item.hidden').length;
+      const countSpan = document.getElementById('hiddenCount');
+      if (countSpan) {
+        countSpan.textContent = hiddenCount;
+      }
+    }
+    
+    // Call this in your existing DOMContentLoaded
+    // Find: document.addEventListener('DOMContentLoaded', function() {
+    // Add this line after it:
+    // initializeProjects();
     
   </script>
 </body>
