@@ -405,16 +405,78 @@
       .section-header { margin-bottom: 2.1rem; }
       .social-link span { display: inline; }
     }
-  </style>
+  
+    /* Donation amount grid */
+    .donation-amount-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
+    .amount-btn {
+        padding: 1rem;
+        border: 2px solid rgba(148, 163, 184, 0.4);
+        background: rgba(15, 23, 42, 0.6);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #e5e7eb;
+    }
+
+    .amount-btn:hover {
+        border-color: #38bdf8;
+        background: rgba(56, 189, 248, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .amount-btn.selected {
+        border-color: #38bdf8;
+        background: #38bdf8;
+        color: #020617;
+    }
+
+    .custom-amount-input {
+        padding: 1rem;
+        border: 2px solid rgba(148, 163, 184, 0.4);
+        border-radius: 10px;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: rgba(15, 23, 42, 0.6);
+        color: #e5e7eb;
+    }
+
+    .custom-amount-input:focus {
+        outline: none;
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+    }
+
+    </style>
+
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E">
+
+    <!-- PayPal SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=AdFjRV4G7J-aefifW5b0jB-DWWDdXBZqmSCelV4GUNiyE5Pa2GO2bnLCXAB7n2Wsn05lLT3HLtWKOg8&currency=USD&components=buttons,funding-eligibility&enable-funding=applepay"></script>
+
+    <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
             emailjs.init("bOWwEgXzrmnE1DRK");
         })();
     </script>
+
     </head>
 <body>
   <!-- Navbar -->
@@ -497,7 +559,6 @@
     </div>
   </section>
 
-  
   <!-- Projects -->
   <section id="projects" class="section">
     <div class="container">
@@ -508,18 +569,19 @@
         </p>
       </header>
 
-      <!-- Security Tools & Monitoring -->
+      <!-- Security tools & monitoring -->
       <div class="category-block">
         <div class="category-header">
           <div class="category-title-wrap">
-            <div class="category-icon"><i class="fas fa-satellite-dish"></i></div>
-            <div class="category-title">Security Tools Monitoring</div>
+            <div class="category-icon">
+              <i class="fas fa-satellite-dish"></i>
+            </div>
+            <div class="category-title">Security tools & monitoring</div>
           </div>
-          <div class="category-caption">Linux hardening • log analysis • reconnaissance • network health</div>
+          <div class="category-caption">Linux hardening · log analysis · reconnaissance · network health</div>
         </div>
-        <div class="projects-grid">
 
-          <!-- SSH Security Monitor -->
+        <div class="projects-grid">
           <article class="project-card">
             <div class="project-pill">Enterprise Linux security platform</div>
             <h3 class="project-title">SSH Security Monitoring & Threat Detection</h3>
@@ -530,16 +592,21 @@
               Detects suspicious login patterns, highlights brute‑force activity, and surfaces high‑risk sources for faster incident response.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Python</span><span class="project-tag">Linux logs</span><span class="project-tag">GeoIP</span><span class="project-tag">Dashboards</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Linux logs</span>
+              <span class="project-tag">GeoIP</span>
+              <span class="project-tag">Dashboards</span>
             </div>
             <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/ssh-security-monitor" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
+            <div class="project-links">
+              <a href="https://github.com/TheGhostPacket/ssh-security-monitor" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
+              <a href="https://ssh-security-monitor.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
             </div>
           </article>
 
-          <!-- Security Log Analyzer v2.5 -->
+          <!-- Security Log Analyzer v2.5 Enhanced -->
           <article class="project-card">
             <div class="project-pill">Enterprise threat detection & analysis</div>
             <h3 class="project-title">Security Log Analyzer v2.5 Enhanced</h3>
@@ -550,7 +617,7 @@
               Multi‑API threat intelligence with visual attack timelines and automated remediation.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Threat Intelligence</span><span class="project-tag">Log Analysis</span><span class="project-tag">Python Flask</span><span class="project-tag">Attack Timelines</span>
+              <span class="project-tag">Threat Intelligence</span><span class="project-tag">Log Analysis</span><span class="project-tag">Python Flask</span><span class="project-tag">Attack Timelines</span><span class="project-tag">Risk Scoring</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
@@ -571,7 +638,7 @@
               Multi‑API malware analysis with comprehensive vendor threat scoring.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Malware Analysis</span><span class="project-tag">VirusTotal</span><span class="project-tag">Python Flask</span><span class="project-tag">Threat Intelligence</span>
+              <span class="project-tag">Malware Analysis</span><span class="project-tag">VirusTotal</span><span class="project-tag">Python Flask</span><span class="project-tag">Hash Analysis</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
@@ -581,7 +648,6 @@
             </div>
           </article>
 
-          <!-- Advanced Port Scanner -->
           <article class="project-card">
             <div class="project-pill">Professional network reconnaissance</div>
             <h3 class="project-title">Advanced Port Scanner</h3>
@@ -592,17 +658,19 @@
               Surfaces exposed services and ports, groups findings by risk, and exports results for reports and remediation tracking.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Flask</span><span class="project-tag">Recon</span><span class="project-tag">Multithreading</span>
+              <span class="project-tag">Flask</span>
+              <span class="project-tag">Recon</span>
+              <span class="project-tag">Multi‑threading</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/advanced-port-scanner" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://advanced-port-scanner.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-external-link-alt"></i> Live Scanner</a>
+                <a href="https://github.com/TheGhostPacket/advanced-port-scanner" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Network Health Checker -->
           <article class="project-card">
             <div class="project-pill">Real‑time network monitoring</div>
             <h3 class="project-title">Network Health Checker Dashboard</h3>
@@ -613,32 +681,34 @@
               Helps detect outages, latency spikes, and performance regressions that can signal underlying security or reliability issues.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Monitoring</span><span class="project-tag">Dashboards</span><span class="project-tag">Alerting</span>
+              <span class="project-tag">Monitoring</span>
+              <span class="project-tag">Dashboards</span>
+              <span class="project-tag">Alerting</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/network-health-checker" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://network-health-checker.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="https://github.com/TheGhostPacket/network-health-checker" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
               </div>
             </div>
           </article>
-
         </div>
       </div>
 
-
-      <!-- Security Games & Simulations -->
+      <!-- Security games & simulations -->
       <div class="category-block">
         <div class="category-header">
           <div class="category-title-wrap">
-            <div class="category-icon"><i class="fas fa-gamepad"></i></div>
-            <div class="category-title">Security Games Simulations</div>
+            <div class="category-icon">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="category-title">Security games & simulations</div>
           </div>
-          <div class="category-caption">Cyber warfare • password attacks • malware defense • command training</div>
+          <div class="category-caption">Cyber warfare · password attacks · malware defense · command training</div>
         </div>
-        <div class="projects-grid">
 
-          <!-- Hash Education Platform -->
+        <div class="projects-grid">
           <article class="project-card">
             <div class="project-pill">Advanced cybersecurity learning tool</div>
             <h3 class="project-title">Interactive Hash & Password Security Platform</h3>
@@ -649,17 +719,19 @@
               Teaches how hashing works, why entropy matters, and how weak passwords fail under common attack strategies.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Hashing</span><span class="project-tag">Education</span><span class="project-tag">Secure design</span>
+              <span class="project-tag">Hashing</span>
+              <span class="project-tag">Education</span>
+              <span class="project-tag">Secure design</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/hash-cracker" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://hash-education-portfolio.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Malware Defense Game -->
           <article class="project-card">
             <div class="project-pill">Malware defense game</div>
             <h3 class="project-title">Space‑Invaders Style Cybersecurity Game</h3>
@@ -670,16 +742,19 @@
               Visualizes how viruses, trojans, ransomware, spyware, and APT‑style threats behave while reinforcing countermeasures.
             </p>
             <div class="project-tags">
-              <span class="project-tag">JavaScript</span><span class="project-tag">Education</span><span class="project-tag">Gamification</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Education</span>
+              <span class="project-tag">Gamification</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/malware-defense-game" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
+                <a href="https://github.com/TheGhostPacket/malware-defense-game" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Password Cracking Visualizer -->
           <article class="project-card">
             <div class="project-pill">Educational security game</div>
             <h3 class="project-title">Attack Simulation & Password Cracking Visualizer</h3>
@@ -690,155 +765,33 @@
               Helps users understand how attackers think and which password policies meaningfully improve security.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Attack simulation</span><span class="project-tag">Password security</span>
+              <span class="project-tag">Attack simulation</span>
+              <span class="project-tag">Password security</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
-                <a href="#" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
               </div>
             </div>
           </article>
-
-          <!-- Network Minesweeper -->
-          <article class="project-card">
-            <div class="project-pill">Classic game meets cybersecurity</div>
-            <h3 class="project-title">Network Minesweeper</h3>
-            <p class="project-desc">
-              Educational twist on classic Minesweeper! Scan a network grid to find hidden malware and threats. Features three difficulty levels and scoring system.
-            </p>
-            <p class="project-meta">
-              Learn network scanning concepts through interactive gameplay.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Game Development</span><span class="project-tag">JavaScript</span><span class="project-tag">Cybersecurity</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/network-minesweeper" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://theghostpacket.github.io/network-minesweeper" target="_blank" rel="noreferrer"><i class="fas fa-gamepad"></i> Play Game</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Hacker Typing Defense -->
-          <article class="project-card">
-            <div class="project-pill">Educational security command typing</div>
-            <h3 class="project-title">Hacker Typing Defense</h3>
-            <p class="project-desc">
-              Fast‑paced typing game teaching real security commands! Defend your system by typing actual cybersecurity commands.
-            </p>
-            <p class="project-meta">
-              Build muscle memory for common security commands while defending against attacks.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Game Development</span><span class="project-tag">JavaScript</span><span class="project-tag">Security Commands</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/hacker-typing-defense" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://theghostpacket.github.io/hacker-typing-defense" target="_blank" rel="noreferrer"><i class="fas fa-gamepad"></i> Play Game</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Cyber Tetris -->
-          <article class="project-card">
-            <div class="project-pill">Data security puzzle game</div>
-            <h3 class="project-title">Cyber Tetris</h3>
-            <p class="project-desc">
-              Classic Tetris reimagined with cybersecurity themes! Organize 7 different data types before system breach.
-            </p>
-            <p class="project-meta">
-              Learn data classification and organization through familiar gameplay mechanics.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Game Development</span><span class="project-tag">JavaScript</span><span class="project-tag">Data Security</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/cyber-tetris" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://theghostpacket.github.io/cyber-tetris" target="_blank" rel="noreferrer"><i class="fas fa-gamepad"></i> Play Game</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Classic Pong Game -->
-          <article class="project-card">
-            <div class="project-pill">Retro gaming meets modern development</div>
-            <h3 class="project-title">Classic Pong Game</h3>
-            <p class="project-desc">
-              Authentic recreation of the classic Pong arcade game featuring retro CRT‑style aesthetics, intelligent AI with 4 difficulty levels, smooth paddle physics, and mobile‑responsive controls.
-            </p>
-            <p class="project-meta">
-              Demonstrates game development skills and AI algorithm implementation.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Retro Gaming</span><span class="project-tag">HTML5 Canvas</span><span class="project-tag">Game AI</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/classic-pong-game" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://theghostpacket.github.io/classic-pong-game" target="_blank" rel="noreferrer"><i class="fas fa-gamepad"></i> Play Game</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Red Team vs Blue Team -->
-          <article class="project-card">
-            <div class="project-pill">Advanced cybersecurity war game</div>
-            <h3 class="project-title">Red Team vs Blue Team</h3>
-            <p class="project-desc">
-              Enterprise‑level cybersecurity training simulator where players experience realistic cyber warfare scenarios with offensive and defensive gameplay.
-            </p>
-            <p class="project-meta">
-              Practice both attack and defense strategies in real‑world security scenarios.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Cyber Warfare</span><span class="project-tag">Strategy Game</span><span class="project-tag">Training</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/red-vs-blue-team" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Snake vs AI -->
-          <article class="project-card">
-            <div class="project-pill">Intelligent game AI & algorithms</div>
-            <h3 class="project-title">Snake vs AI</h3>
-            <p class="project-desc">
-              Advanced Snake game featuring intelligent AI opponent with 4 difficulty levels. Implements pathfinding algorithms and competitive gameplay.
-            </p>
-            <p class="project-meta">
-              Demonstrates AI implementation and algorithm optimization techniques.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Game AI</span><span class="project-tag">Pathfinding</span><span class="project-tag">JavaScript</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/snake-ai-game" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </article>
-
         </div>
       </div>
 
-
-      <!-- Enterprise & Full‑stack -->
+      <!-- Full-stack & automation -->
       <div class="category-block">
         <div class="category-header">
           <div class="category-title-wrap">
-            <div class="category-icon"><i class="fas fa-cogs"></i></div>
-            <div class="category-title">Enterprise Full‑stack</div>
+            <div class="category-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="category-title">Full‑stack & automation</div>
           </div>
-          <div class="category-caption">GeoINT • CTF platforms • AD security • financial apps • automation bots</div>
+          <div class="category-caption">Geoint · bots · financial apps · AI & algorithms</div>
         </div>
-        <div class="projects-grid">
 
-          <!-- IP Geolocation Tool -->
+        <div class="projects-grid">
           <article class="project-card">
             <div class="project-pill">Advanced geographic intelligence</div>
             <h3 class="project-title">IP Geolocation Investigation Tool</h3>
@@ -849,17 +802,18 @@
               Supports threat hunting and incident investigations by quickly visualizing where traffic and attacks originate.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Maps</span><span class="project-tag">Security intel</span>
+              <span class="project-tag">Maps</span>
+              <span class="project-tag">Security intel</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/ip-geolocation-tracker" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://ip-geolocation-tracker-7yb2.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Global Vehicle Bot -->
           <article class="project-card">
             <div class="project-pill">Telegram automation bot</div>
             <h3 class="project-title">Global Vehicle Identification Bot</h3>
@@ -870,17 +824,19 @@
               Demonstrates secure API integration, rate limiting, and production‑grade bot deployment patterns.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Telegram</span><span class="project-tag">APIs</span><span class="project-tag">Docker</span>
+              <span class="project-tag">Telegram</span>
+              <span class="project-tag">APIs</span>
+              <span class="project-tag">Docker</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/vin-checker-bot" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://t.me/checkervinbot" target="_blank" rel="noreferrer"><i class="fas fa-external-link-alt"></i> Try Bot</a>
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
               </div>
             </div>
           </article>
 
-          <!-- Finance Tracker -->
           <article class="project-card">
             <div class="project-pill">Full‑stack web application</div>
             <h3 class="project-title">Secure Personal Finance Management System</h3>
@@ -891,123 +847,24 @@
               Built with secure development practices including input validation, proper auth flows, and safe deployment patterns.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Full‑stack</span><span class="project-tag">Authentication</span><span class="project-tag">Data viz</span>
+              <span class="project-tag">Full‑stack</span>
+              <span class="project-tag">Authentication</span>
+              <span class="project-tag">Data viz</span>
             </div>
             <div class="project-footer">
               <div class="project-links">
-                <a href="#" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
               </div>
             </div>
           </article>
-
-          <!-- CyberCTF Platform -->
-          <article class="project-card">
-            <div class="project-pill">Professional cybersecurity training platform</div>
-            <h3 class="project-title">CyberCTF Platform</h3>
-            <p class="project-desc">
-              Comprehensive Capture The Flag (CTF) platform for cybersecurity education featuring multi‑category challenges, real‑time scoring system, user management, and interactive leaderboards.
-            </p>
-            <p class="project-meta">
-              Production‑ready CTF platform for security training and competitions.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">CTF Platform</span><span class="project-tag">Python Flask</span><span class="project-tag">User Auth</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/cyberctf-platform" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-                <a href="https://cyberctf-platform-1.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-flag"></i> Try Platform</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Active Directory Security Lab -->
-          <article class="project-card">
-            <div class="project-pill">Enterprise AD attack & defense simulation</div>
-            <h3 class="project-title">Active Directory Security Lab</h3>
-            <p class="project-desc">
-              Professional cybersecurity training platform featuring interactive simulations of common Active Directory attacks mapped to MITRE ATT&CK framework.
-            </p>
-            <p class="project-meta">
-              Hands‑on enterprise security training with real‑world attack scenarios.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Active Directory</span><span class="project-tag">Attack Simulations</span><span class="project-tag">MITRE ATT&CK</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/ad-security-lab" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- AI Phishing Detector -->
-          <article class="project-card">
-            <div class="project-pill">Machine learning security tool</div>
-            <h3 class="project-title">AI Phishing Detector</h3>
-            <p class="project-desc">
-              Advanced threat detection system with machine learning capabilities, real‑time URL scanning, domain spoofing detection, and phishing pattern recognition.
-            </p>
-            <p class="project-meta">
-              Uses ML algorithms to identify sophisticated phishing attempts and malicious URLs.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Machine Learning</span><span class="project-tag">Phishing Detection</span><span class="project-tag">Python</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/ai-phishing-detector" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Security Analytics Dashboard -->
-          <article class="project-card">
-            <div class="project-pill">Log analysis & threat monitoring</div>
-            <h3 class="project-title">Security Analytics Dashboard</h3>
-            <p class="project-desc">
-              Comprehensive log analysis tool that detects failed login patterns, suspicious activities, and generates visual reports with threat intelligence.
-            </p>
-            <p class="project-meta">
-              Real‑time security monitoring with customizable alerting and reporting.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Log Analysis</span><span class="project-tag">Dashboards</span><span class="project-tag">Threat Monitoring</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/security-analytics-dashboard" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Password Security Tools -->
-          <article class="project-card">
-            <div class="project-pill">Advanced password security tool</div>
-            <h3 class="project-title">Password Security Tools</h3>
-            <p class="project-desc">
-              Comprehensive password security suite featuring cryptographically secure generation, real‑time strength analysis, and detailed security feedback.
-            </p>
-            <p class="project-meta">
-              Educates users on password best practices and entropy requirements.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag">Password Security</span><span class="project-tag">Cryptography</span><span class="project-tag">Education</span>
-            </div>
-            <div class="project-footer">
-              <div class="project-links">
-                <a href="https://github.com/TheGhostPacket/password-security-tools" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
-              </div>
-            </div>
-          </article>
-
         </div>
       </div>
-
     </div>
   </section>
 
-<!-- Experience & learning -->
+  <!-- Experience & learning -->
   <section id="experience" class="section" style="background: rgba(2,6,23,0.9);">
     <div class="container">
       <header class="section-header">
@@ -1102,5 +959,1278 @@
       </p>
     </div>
   </footer>
+
+    <script>
+    // PayPal Donation System
+    let selectedAmount = 5.00;
+
+    function selectAmount(amount) {
+        selectedAmount = amount;
+        document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('selected'));
+        event.target.closest('.amount-btn').classList.add('selected');
+        document.getElementById('customAmount').value = '';
+        renderPayPalButton();
+    }
+
+    function renderPayPalButton() {
+        const container = document.getElementById('paypal-donate-button-container');
+        if (!container) return;
+
+        container.innerHTML = '';
+
+        // PayPal Button
+        paypal.Buttons({
+            fundingSource: paypal.FUNDING.PAYPAL,
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: 'Support TheGhostPacket - Cybersecurity Education',
+                        amount: { value: selectedAmount.toFixed(2) }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    const donorName = details.payer.name.given_name + ' ' + details.payer.name.surname;
+                    const donorEmail = details.payer.email_address;
+                    const amount = details.purchase_units[0].amount.value;
+                    const transactionId = details.id;
+                    const date = new Date().toLocaleDateString('en-US', {
+                        year: 'numeric', month: 'long', day: 'numeric',
+                        hour: '2-digit', minute: '2-digit'
+                    });
+
+                    // Send thank you email to donor
+                    emailjs.send('service_c5c4fy5', 'template_wofdybk', {
+                        to_name: details.payer.name.given_name,
+                        to_email: donorEmail,
+                        amount: amount,
+                        transaction_id: transactionId,
+                        date: date
+                    });
+
+                    // Send notification to yourself
+                    emailjs.send('service_c5c4fy5', 'template_4b320bd', {
+                        donor_name: donorName,
+                        donor_email: donorEmail,
+                        amount: amount,
+                        transaction_id: transactionId,
+                        date: date,
+                        to_email: 'support@theghostpacket.com'
+                    });
+
+                    alert(`Thank you so much, ${details.payer.name.given_name}! Your support means the world to me. Check your email for a receipt!`);
+                });
+            },
+            onError: function(err) {
+                console.error('PayPal error:', err);
+                alert('Oops! Something went wrong. Please try again!');
+            },
+            style: {
+                layout: 'vertical',
+                color: 'blue',
+                shape: 'rect',
+                label: 'donate',
+                height: 45
+            }
+        }).render('#paypal-donate-button-container');
+
+        // Apple Pay Button
+        paypal.Buttons({
+            fundingSource: paypal.FUNDING.APPLEPAY,
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: 'Support TheGhostPacket - Cybersecurity Education',
+                        amount: { value: selectedAmount.toFixed(2) }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert(`Thank you so much, ${details.payer.name.given_name}!`);
+                });
+            },
+            onError: function(err) {
+                alert('Oops! Something went wrong with Apple Pay. Please try regular PayPal!');
+            }
+        }).render('#paypal-donate-button-container');
+    }
+
+    // Custom amount handling
+    document.addEventListener('DOMContentLoaded', function() {
+        const customInput = document.getElementById('customAmount');
+        if (customInput) {
+            customInput.addEventListener('input', function() {
+                if (this.value && this.value > 0) {
+                    selectedAmount = parseFloat(this.value);
+                    document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('selected'));
+                    renderPayPalButton();
+                }
+            });
+        }
+
+        // Initialize PayPal button
+        renderPayPalButton();
+    });
+    </script>
+
 </body>
 </html>
+
+  <!-- Support Section -->
+  <section id="support" class="section" style="background: rgba(59, 130, 246, 0.05);">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Support My Journey</h2>
+        <p class="section-subtitle">Help me continue building cybersecurity education tools and resources</p>
+      </header>
+
+      <div class="card" style="max-width: 700px; margin: 0 auto; text-align: center; padding: 3rem 2rem;">
+        <span style="font-size: 4rem; display: block; margin-bottom: 1rem;">☕</span>
+        <h3 style="margin-bottom: 1rem; color: #38bdf8; font-size: 1.8rem;">Buy Me a Coffee</h3>
+        <p style="color: #9ca3af; margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.8;">
+          If you find my cybersecurity projects helpful or want to support my learning journey, consider buying me a coffee!
+        </p>
+        <p style="color: #9ca3af; font-size: 0.95rem; margin-bottom: 2rem;">
+          🎓 Currently studying for CompTIA Security+ certification<br>
+          🛡️ Building hands-on cybersecurity training platforms<br>
+          🚀 Creating educational security games and tools
+        </p>
+
+        <div class="donation-amount-grid">
+          <button class="amount-btn" onclick="selectAmount(3)">$3<br><small>☕</small></button>
+          <button class="amount-btn selected" onclick="selectAmount(5)">$5<br><small>☕☕</small></button>
+          <button class="amount-btn" onclick="selectAmount(10)">$10<br><small>🎉</small></button>
+          <button class="amount-btn" onclick="selectAmount(25)">$25<br><small>🚀</small></button>
+        </div>
+
+        <div style="margin: 1.5rem 0;">
+          <label style="display: block; margin-bottom: 0.5rem; color: #9ca3af; font-size: 0.9rem;">Or enter custom amount</label>
+          <input type="number" id="customAmount" class="custom-amount-input" placeholder="Enter amount" min="1" step="0.01">
+        </div>
+
+        <div id="paypal-donate-button-container" style="max-width: 400px; margin: 2rem auto;"></div>
+
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(148, 163, 184, 0.3);">
+          <p style="color: #9ca3af; font-size: 0.9rem; margin-bottom: 1rem;">
+            <i class="fas fa-heart" style="color: #dc2626;"></i> Thank you for your support!
+          </p>
+          <p style="color: #9ca3af; font-size: 0.85rem;">
+            Your contributions help cover hosting costs, certification expenses, and lab equipment for security research.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Contact footer -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <h3 class="footer-heading">Ready to collaborate?</h3>
+      <p class="footer-sub">
+        Open to junior cybersecurity roles, internships, and security‑focused development projects.
+      </p>
+
+      <div class="social-row">
+        <a class="social-link" href="https://github.com/TheGhostPacket" target="_blank" rel="noreferrer">
+          <i class="fab fa-github"></i><span>GitHub</span>
+        </a>
+        <a class="social-link" href="https://linkedin.com/in/nhyira-yanney-b19898178" target="_blank" rel="noreferrer">
+          <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+        </a>
+        <a class="social-link" href="mailto:contact@theghostpacket.com">
+          <i class="fas fa-envelope"></i><span>Email</span>
+        </a>
+      </div>
+
+      <p class="footer-meta">
+        If you find my cybersecurity projects helpful or want to support my learning journey, consider buying me a coffee.<br>
+        Currently studying for CompTIA Security+ • Building hands‑on cybersecurity training platforms • Creating educational security games and tools
+      </p>
+    </div>
+  </footer>E html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheGhostPacket | Cybersecurity Portfolio</title>
+  <meta name="description" content="Aspiring cybersecurity analyst with strong full-stack development skills, passionate about ethical hacking, network security, and building secure web applications.">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+      background: linear-gradient(135deg, #020617 0%, #020617 35%, #020617 60%, #0b1120 100%); 
+      color: #e2e8f0; 
+      line-height: 1.6; 
+      overflow-x: hidden;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Navbar */
+    .navbar { 
+      position: fixed; 
+      top: 0; 
+      width: 100%; 
+      background: rgba(2,6,23,0.96); 
+      backdrop-filter: blur(18px); 
+      border-bottom: 1px solid rgba(56,189,248,0.25); 
+      z-index: 1000; 
+      transition: all 0.3s ease;
+    }
+    .nav-content { display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 1.5rem; }
+    .logo { 
+      display: flex; align-items: center; gap: 10px; 
+      font-weight: 700; font-size: 1.15rem; 
+      background: linear-gradient(135deg, #38bdf8, #2dd4bf); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      background-clip: text;
+    }
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      border: 1px solid rgba(56,189,248,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 0% 0%, rgba(56,189,248,0.25), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(45,212,191,0.25), transparent 55%);
+      color: #e2e8f0;
+      font-size: 0.95rem;
+    }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; font-size: 0.9rem; }
+    .nav-links a { color: #94a3b8; text-decoration: none; font-weight: 500; transition: all 0.2s; }
+    .nav-links a:hover { color: #38bdf8; }
+    
+    /* Hero */
+    .hero { 
+      min-height: 100vh; 
+      display: flex; 
+      align-items: center; 
+      padding-top: 80px; 
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: ''; 
+      position: absolute; 
+      inset: 0; 
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(56,189,248,0.18), transparent 55%),
+        radial-gradient(circle at 80% 70%, rgba(45,212,191,0.12), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(15,23,42,0.7) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(15,23,42,0.7) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.35;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+    .hero-inner { 
+      display: grid; 
+      grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); 
+      gap: 3rem; 
+      align-items: center; 
+      max-width: 1100px; 
+      margin: 0 auto;
+      position: relative; 
+      z-index: 1;
+    }
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #38bdf8;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .hero-title { 
+      font-size: clamp(2.4rem, 4vw, 3.4rem); 
+      font-weight: 800; 
+      line-height: 1.08; 
+      margin-bottom: 1.5rem; 
+      background: linear-gradient(135deg, #f9fafb, #e5e7eb, #38bdf8); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      background-clip: text;
+    }
+    .hero-subtitle { 
+      font-size: 1rem; 
+      color: #9ca3af; 
+      margin-bottom: 1.8rem; 
+      max-width: 34rem;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.75rem; }
+    .btn-primary { 
+      background: radial-gradient(circle at 0% 0%, #38bdf8, #0ea5e9); 
+      color: #020617; 
+      padding: 0.9rem 1.6rem; 
+      border-radius: 999px; 
+      border: none;
+      font-weight: 600; 
+      text-decoration: none; 
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 12px 30px rgba(56,189,248,0.45);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 40px rgba(56,189,248,0.6); }
+    .btn-secondary { 
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6); 
+      color: #e5e7eb; 
+      padding: 0.85rem 1.4rem; 
+      font-weight: 500; 
+      text-decoration: none; 
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: radial-gradient(circle at 0% 0%, rgba(148,163,184,0.18), transparent 60%);
+      transition: border-color 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+    }
+    .btn-secondary:hover { border-color: #38bdf8; background-color: rgba(15,23,42,0.8); color: #f9fafb; }
+    .hero-meta { font-size: 0.78rem; color: #6b7280; }
+    .hero-meta strong { color: #e5e7eb; font-weight: 600; }
+    
+    /* Snapshot */
+    .snapshot { 
+      background: radial-gradient(circle at 0% 0%, rgba(15,23,42,0.9), rgba(15,23,42,0.98)); 
+      border-radius: 1.5rem; 
+      padding: 1.75rem; 
+      border: 1px solid rgba(51,65,85,0.9);
+      box-shadow: 0 22px 45px rgba(15,23,42,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+    .snapshot::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 220deg, rgba(56,189,248,0.15), transparent 40%, rgba(45,212,191,0.15), transparent 75%);
+      opacity: 0.6;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+    }
+    .snapshot-inner { position: relative; z-index: 1; }
+    .snapshot-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+    .snapshot-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      font-weight: 600;
+    }
+    .snapshot-pill {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid rgba(56,189,248,0.4);
+      color: #bae6fd;
+      background: rgba(8,47,73,0.9);
+    }
+    .snapshot-main {
+      font-size: 0.85rem;
+      color: #e5e7eb;
+      margin-bottom: 1rem;
+    }
+    .snapshot-main span { color: #38bdf8; font-weight: 500; }
+    .snapshot-grid { 
+      display: grid; 
+      grid-template-columns: repeat(2, minmax(0,1fr)); 
+      gap: 1.2rem; 
+      margin-top: 0.5rem;
+    }
+    .snapshot-group-title {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-bottom: 0.35rem;
+      font-weight: 500;
+    }
+    .snapshot-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .snapshot-tag {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.9);
+    }
+    
+    /* Sections */
+    .section { padding: 4.5rem 0; }
+    .section-header { margin-bottom: 2.5rem; }
+    .section-title { 
+      font-size: 1.9rem; 
+      font-weight: 800; 
+      margin-bottom: 0.5rem; 
+      background: linear-gradient(135deg, #f9fafb, #22c55e); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      background-clip: text;
+    }
+    .section-subtitle { color: #9ca3af; font-size: 0.95rem; max-width: 32rem; }
+    
+    /* Projects */
+    .category-block { margin-bottom: 2.8rem; }
+    .category-header { 
+      margin-bottom: 1.3rem; 
+      display: flex; 
+      justify-content: space-between; 
+      gap: 1rem;
+      align-items: baseline;
+    }
+    .category-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .category-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(56,189,248,0.4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #bae6fd;
+      background: radial-gradient(circle at 0% 0%, rgba(8,47,73,0.8), transparent 70%);
+    }
+    .category-title { 
+      font-size: 0.9rem; 
+      font-weight: 600; 
+      color: #e5e7eb; 
+      text-transform: uppercase; 
+      letter-spacing: 0.18em;
+    }
+    .category-caption { font-size: 0.8rem; color: #6b7280; }
+    .projects-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 1.6rem; 
+    }
+    .project-card { 
+      background: radial-gradient(circle at 0% 0%, rgba(15,23,42,0.96), rgba(15,23,42,0.98)); 
+      border-radius: 1.2rem; 
+      padding: 1.4rem; 
+      border: 1px solid rgba(31,41,55,0.95);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 210px;
+      transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .project-card:hover { 
+      border-color: rgba(56,189,248,0.5); 
+      transform: translateY(-2px);
+      box-shadow: 0 18px 35px rgba(15,23,42,0.9);
+    }
+    .project-pill {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #22c55e;
+      margin-bottom: 0.35rem;
+    }
+    .project-title { 
+      font-size: 1rem; 
+      font-weight: 600; 
+      color: #f9fafb; 
+      margin-bottom: 0.45rem; 
+    }
+    .project-desc { font-size: 0.83rem; color: #9ca3af; margin-bottom: 0.9rem; }
+    .project-meta { font-size: 0.75rem; color: #6b7280; margin-bottom: 0.9rem; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.9rem; }
+    .project-tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.55);
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.95);
+    }
+    .project-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .project-links { display: flex; gap: 0.5rem; align-items: center; }
+    .project-links a { 
+      color: #38bdf8; 
+      font-weight: 500; 
+      font-size: 0.78rem; 
+      text-decoration: none; 
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+    .project-links a:hover { color: #0ea5e9; }
+    
+    /* Experience */
+    .experience-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+      gap: 1.4rem; 
+    }
+    .experience-card { 
+      background: radial-gradient(circle at 0% 0%, rgba(8,47,73,0.9), rgba(15,23,42,0.97)); 
+      border-radius: 1.1rem; 
+      padding: 1.4rem; 
+      border: 1px solid rgba(15,118,110,0.7);
+    }
+    .experience-title { font-size: 0.95rem; font-weight: 600; color: #e5e7eb; margin-bottom: 0.4rem; }
+    .experience-desc { font-size: 0.83rem; color: #9ca3af; }
+    
+    /* Contact / Footer */
+    .footer { 
+      background: #020617; 
+      border-top: 1px solid rgba(30,64,175,0.6);
+      padding: 2.8rem 0 2rem; 
+      text-align: center; 
+    }
+    .footer-heading {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 0.6rem;
+    }
+    .footer-sub {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-bottom: 1.8rem;
+    }
+    .social-row { display: flex; justify-content: center; gap: 0.9rem; margin-bottom: 1.7rem; flex-wrap: wrap; }
+    .social-link { 
+      min-width: 44px;
+      min-height: 44px;
+      padding: 0 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(30,64,175,0.8);
+      background: radial-gradient(circle at 0% 0%, rgba(30,64,175,0.85), rgba(15,23,42,0.98));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .social-link span { display: none; }
+    .social-link:hover { 
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(15,23,42,0.9);
+      border-color: rgba(56,189,248,0.8);
+    }
+    .footer-meta {
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+    
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: minmax(0,1fr); gap: 2.3rem; }
+      .hero-subtitle { max-width: 100%; }
+      .hero { padding-top: 84px; padding-bottom: 2.5rem; }
+      .snapshot { order: -1; }
+      .nav-links { display: none; }
+      .section { padding: 3.4rem 0; }
+      .section-header { margin-bottom: 2.1rem; }
+      .social-link span { display: inline; }
+    }
+  
+    /* Donation amount grid */
+    .donation-amount-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .amount-btn {
+        padding: 1rem;
+        border: 2px solid rgba(148, 163, 184, 0.4);
+        background: rgba(15, 23, 42, 0.6);
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #e5e7eb;
+    }
+
+    .amount-btn:hover {
+        border-color: #38bdf8;
+        background: rgba(56, 189, 248, 0.1);
+        transform: translateY(-2px);
+    }
+
+    .amount-btn.selected {
+        border-color: #38bdf8;
+        background: #38bdf8;
+        color: #020617;
+    }
+
+    .custom-amount-input {
+        padding: 1rem;
+        border: 2px solid rgba(148, 163, 184, 0.4);
+        border-radius: 10px;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background: rgba(15, 23, 42, 0.6);
+        color: #e5e7eb;
+    }
+
+    .custom-amount-input:focus {
+        outline: none;
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+    }
+
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E">
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=AdFjRV4G7J-aefifW5b0jB-DWWDdXBZqmSCelV4GUNiyE5Pa2GO2bnLCXAB7n2Wsn05lLT3HLtWKOg8&currency=USD&components=buttons,funding-eligibility&enable-funding=applepay"></script>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("bOWwEgXzrmnE1DRK");
+        })();
+    </script>
+
+    </head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-content container">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-ghost"></i>
+        </div>
+        TheGhostPacket
+      </div>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#learning">Learning</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="grid-overlay"></div>
+    <div class="hero-inner container">
+      <div>
+        <div class="eyebrow">Cybersecurity Enthusiast</div>
+        <h1 class="hero-title">
+          Aspiring cybersecurity analyst building hands‑on security tools, games, and training platforms.
+        </h1>
+        <p class="hero-subtitle">
+          Aspiring cybersecurity analyst with strong full-stack development skills, passionate about ethical hacking, network security, and building secure web applications. Creating hands-on projects that demonstrate both offensive/defensive security techniques, educational technology, and modern development practices.
+        </p>
+        <div class="cta-row">
+          <a href="#projects" class="btn-primary">
+            <span>View security projects</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn-secondary">
+            <i class="fas fa-handshake"></i>
+            <span>Ready to collaborate?</span>
+          </a>
+        </div>
+        <p class="hero-meta">
+          Target roles: <strong>Junior SOC Analyst</strong> · <strong>Cybersecurity Analyst</strong> · <strong>Security Engineer (entry‑level)</strong>
+        </p>
+      </div>
+
+      <aside class="snapshot" id="skills">
+        <div class="snapshot-inner">
+          <div class="snapshot-header">
+            <div class="snapshot-title">Snapshot</div>
+            <div class="snapshot-pill">
+              <i class="fas fa-shield-alt"></i> Early‑career security
+            </div>
+          </div>
+          <p class="snapshot-main">
+            🎓 Currently studying for <span>CompTIA Security+</span> (Expected: Q2 2025).  
+            Deep diving into Linux, system hardening, bash scripting, and hands‑on penetration testing labs and CTF challenges.
+          </p>
+          <div class="snapshot-grid">
+            <div>
+              <div class="snapshot-group-title">Core strengths</div>
+              <div class="snapshot-tags">
+                <span class="snapshot-tag">Network security</span>
+                <span class="snapshot-tag">Secure web apps</span>
+                <span class="snapshot-tag">Threat monitoring</span>
+              </div>
+            </div>
+            <div>
+              <div class="snapshot-group-title">Focus areas</div>
+              <div class="snapshot-tags">
+                <span class="snapshot-tag">Attack simulations</span>
+                <span class="snapshot-tag">Log analysis</span>
+                <span class="snapshot-tag">Password security</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Featured security projects</h2>
+        <p class="section-subtitle">
+          Hands‑on tools, simulations, and full‑stack applications that mirror real‑world attacks, defenses, and security workflows.
+        </p>
+      </header>
+
+      <!-- Security tools & monitoring -->
+      <div class="category-block">
+        <div class="category-header">
+          <div class="category-title-wrap">
+            <div class="category-icon">
+              <i class="fas fa-satellite-dish"></i>
+            </div>
+            <div class="category-title">Security tools & monitoring</div>
+          </div>
+          <div class="category-caption">Linux hardening · log analysis · reconnaissance · network health</div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-pill">Enterprise Linux security platform</div>
+            <h3 class="project-title">SSH Security Monitoring & Threat Detection</h3>
+            <p class="project-desc">
+              Professional SSH security monitoring system with real‑time attack analysis, geographic threat mapping, interactive dashboards, and executive‑level reporting.
+            </p>
+            <p class="project-meta">
+              Detects suspicious login patterns, highlights brute‑force activity, and surfaces high‑risk sources for faster incident response.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Linux logs</span>
+              <span class="project-tag">GeoIP</span>
+              <span class="project-tag">Dashboards</span>
+            </div>
+            <div class="project-footer">
+            <div class="project-links">
+              <a href="https://github.com/TheGhostPacket/ssh-security-monitor" target="_blank" rel="noreferrer"><i class="fab fa-github"></i> Code</a>
+              <a href="https://ssh-security-monitor.onrender.com" target="_blank" rel="noreferrer"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-pill">Professional network reconnaissance</div>
+            <h3 class="project-title">Advanced Port Scanner</h3>
+            <p class="project-desc">
+              Enterprise‑grade network reconnaissance tool with multi‑threaded scanning, service detection, risk assessment, and a clean web interface.
+            </p>
+            <p class="project-meta">
+              Surfaces exposed services and ports, groups findings by risk, and exports results for reports and remediation tracking.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Flask</span>
+              <span class="project-tag">Recon</span>
+              <span class="project-tag">Multi‑threading</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-links">
+                <a href="https://github.com/TheGhostPacket/advanced-port-scanner" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-pill">Real‑time network monitoring</div>
+            <h3 class="project-title">Network Health Checker Dashboard</h3>
+            <p class="project-desc">
+              Professional monitoring dashboard with real‑time health checks, response time analytics, uptime tracking, and intuitive visualizations.
+            </p>
+            <p class="project-meta">
+              Helps detect outages, latency spikes, and performance regressions that can signal underlying security or reliability issues.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Monitoring</span>
+              <span class="project-tag">Dashboards</span>
+              <span class="project-tag">Alerting</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-links">
+                <a href="https://github.com/TheGhostPacket/network-health-checker" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Security games & simulations -->
+      <div class="category-block">
+        <div class="category-header">
+          <div class="category-title-wrap">
+            <div class="category-icon">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="category-title">Security games & simulations</div>
+          </div>
+          <div class="category-caption">Cyber warfare · password attacks · malware defense · command training</div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-pill">Advanced cybersecurity learning tool</div>
+            <h3 class="project-title">Interactive Hash & Password Security Platform</h3>
+            <p class="project-desc">
+              Comprehensive educational platform featuring interactive hash generation, password strength analysis, algorithm comparison, and a security quiz system.
+            </p>
+            <p class="project-meta">
+              Teaches how hashing works, why entropy matters, and how weak passwords fail under common attack strategies.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Hashing</span>
+              <span class="project-tag">Education</span>
+              <span class="project-tag">Secure design</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-links">
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-pill">Malware defense game</div>
+            <h3 class="project-title">Space‑Invaders Style Cybersecurity Game</h3>
+            <p class="project-desc">
+              Retro Space Invaders‑style security game featuring 5 different malware types and modern cyber warfare simulations.
+            </p>
+            <p class="project-meta">
+              Visualizes how viruses, trojans, ransomware, spyware, and APT‑style threats behave while reinforcing countermeasures.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Education</span>
+              <span class="project-tag">Gamification</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-links">
+                <a href="https://github.com/TheGhostPacket/malware-defense-game" target="_blank" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-pill">Educational security game</div>
+            <h3 class="project-title">Attack Simulation & Password Cracking Visualizer</h3>
+            <p class="project-desc">
+              Interactive game featuring brute force, dictionary, pattern analysis, and social engineering simulations with real‑time cracking visualization and security feedback.
+            </p>
+            <p class="project-meta">
+              Helps users understand how attackers think and which password policies meaningfully improve security.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Attack simulation</span>
+              <span class="project-tag">Password security</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-links">
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Full-stack & automation -->
+      <div class="category-block">
+        <div class="category-header">
+          <div class="category-title-wrap">
+            <div class="category-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="category-title">Full‑stack & automation</div>
+          </div>
+          <div class="category-caption">Geoint · bots · financial apps · AI & algorithms</div>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-pill">Advanced geographic intelligence</div>
+            <h3 class="project-title">IP Geolocation Investigation Tool</h3>
+            <p class="project-desc">
+              Professional IP geolocation analysis tool with multiple interactive map styles, real‑time lookup, ISP identification, and risk assessment.
+            </p>
+            <p class="project-meta">
+              Supports threat hunting and incident investigations by quickly visualizing where traffic and attacks originate.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Maps</span>
+              <span class="project-tag">Security intel</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-links">
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-pill">Telegram automation bot</div>
+            <h3 class="project-title">Global Vehicle Identification Bot</h3>
+            <p class="project-desc">
+              Advanced Telegram bot for real‑time vehicle identification with VIN decoding, comprehensive vehicle data retrieval, and instant verification.
+            </p>
+            <p class="project-meta">
+              Demonstrates secure API integration, rate limiting, and production‑grade bot deployment patterns.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Telegram</span>
+              <span class="project-tag">APIs</span>
+              <span class="project-tag">Docker</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-links">
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-pill">Full‑stack web application</div>
+            <h3 class="project-title">Secure Personal Finance Management System</h3>
+            <p class="project-desc">
+              Advanced finance tracker with authentication, interactive dashboards, real‑time data visualization, transaction management, and reporting.
+            </p>
+            <p class="project-meta">
+              Built with secure development practices including input validation, proper auth flows, and safe deployment patterns.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Full‑stack</span>
+              <span class="project-tag">Authentication</span>
+              <span class="project-tag">Data viz</span>
+            </div>
+            <div class="project-footer">
+              <div class="project-links">
+                <a href="#" rel="noreferrer">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & learning -->
+  <section id="experience" class="section" style="background: rgba(2,6,23,0.9);">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Experience & training</h2>
+        <p class="section-subtitle">
+          Blending cyber programs, simulations, and self‑driven labs to build practical security skills.
+        </p>
+      </header>
+
+      <div class="experience-grid">
+        <article class="experience-card">
+          <h3 class="experience-title">Cybersecurity Training Platform</h3>
+          <p class="experience-desc">
+            Completed hands-on cybersecurity training through practical labs and challenges, covering penetration testing and network security.
+          </p>
+        </article>
+        <article class="experience-card">
+          <h3 class="experience-title">Cybersecurity Job Simulation</h3>
+          <p class="experience-desc">
+            Hands‑on simulation covering threat detection, incident response, and security analysis in enterprise environments.
+          </p>
+        </article>
+        <article class="experience-card">
+          <h3 class="experience-title">Cyber Job Simulation</h3>
+          <p class="experience-desc">
+            Cyber consulting simulation covering risk assessment, security strategy, and client advisory services.
+          </p>
+        </article>
+        <article class="experience-card">
+          <h3 class="experience-title">Cybersecurity Program</h3>
+          <p class="experience-desc">
+            Comprehensive program focused on defensive strategies, threat intelligence, and security operations.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning & goals -->
+  <section id="learning" class="section">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Current learning & goals</h2>
+        <p class="section-subtitle">
+          Continuously leveling up through certifications, labs, and real projects.
+        </p>
+      </header>
+      <div class="experience-grid">
+        <article class="experience-card">
+          <h3 class="experience-title">CompTIA Security+ (Expected Q2 2025)</h3>
+          <p class="experience-desc">
+            Preparing for CompTIA Security+ certification covering network security, threats, cryptography, identity management, and security operations.
+          </p>
+        </article>
+        <article class="experience-card">
+          <h3 class="experience-title">Linux & server hardening</h3>
+          <p class="experience-desc">
+            Deep diving into Linux administration, bash scripting, system hardening, and server security for enterprise environments.
+          </p>
+        </article>
+        <article class="experience-card">
+          <h3 class="experience-title">Penetration testing & CTFs</h3>
+          <p class="experience-desc">
+            Practicing penetration testing methodologies, vulnerability assessment, and exploitation techniques through hands‑on labs and capture‑the‑flag challenges.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / footer -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <h3 class="footer-heading">Ready to collaborate?</h3>
+      <p class="footer-sub">
+        Open to junior cybersecurity roles, internships, and security‑focused development projects.
+      </p>
+      <div class="social-row">
+        <a class="social-link" href="https://github.com/TheGhostPacket" target="_blank" rel="noreferrer">
+          <i class="fab fa-github"></i><span>GitHub</span>
+        </a>
+        <a class="social-link" href="https://linkedin.com/in/nhyira-yanney-b19898178" target="_blank" rel="noreferrer">
+          <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+        </a>
+        <a class="social-link" href="mailto:contact@theghostpacket.com">
+          <i class="fas fa-envelope"></i><span>Email</span>
+        </a>
+      </div>
+      <p class="footer-meta">
+        If you find my cybersecurity projects helpful or want to support my learning journey, consider buying me a coffee.  
+        🎓 Currently studying for CompTIA Security+ · 🛡️ Building hands‑on cybersecurity training platforms · 🚀 Creating educational security games and tools
+      </p>
+    </div>
+  </footer>
+
+    <script>
+    // PayPal Donation System
+    let selectedAmount = 5.00;
+
+    function selectAmount(amount) {
+        selectedAmount = amount;
+        document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('selected'));
+        event.target.closest('.amount-btn').classList.add('selected');
+        document.getElementById('customAmount').value = '';
+        renderPayPalButton();
+    }
+
+    function renderPayPalButton() {
+        const container = document.getElementById('paypal-donate-button-container');
+        if (!container) return;
+
+        container.innerHTML = '';
+
+        // PayPal Button
+        paypal.Buttons({
+            fundingSource: paypal.FUNDING.PAYPAL,
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: 'Support TheGhostPacket - Cybersecurity Education',
+                        amount: { value: selectedAmount.toFixed(2) }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    const donorName = details.payer.name.given_name + ' ' + details.payer.name.surname;
+                    const donorEmail = details.payer.email_address;
+                    const amount = details.purchase_units[0].amount.value;
+                    const transactionId = details.id;
+                    const date = new Date().toLocaleDateString('en-US', {
+                        year: 'numeric', month: 'long', day: 'numeric',
+                        hour: '2-digit', minute: '2-digit'
+                    });
+
+                    // Send thank you email to donor
+                    emailjs.send('service_c5c4fy5', 'template_wofdybk', {
+                        to_name: details.payer.name.given_name,
+                        to_email: donorEmail,
+                        amount: amount,
+                        transaction_id: transactionId,
+                        date: date
+                    });
+
+                    // Send notification to yourself
+                    emailjs.send('service_c5c4fy5', 'template_4b320bd', {
+                        donor_name: donorName,
+                        donor_email: donorEmail,
+                        amount: amount,
+                        transaction_id: transactionId,
+                        date: date,
+                        to_email: 'support@theghostpacket.com'
+                    });
+
+                    alert(`Thank you so much, ${details.payer.name.given_name}! Your support means the world to me. Check your email for a receipt!`);
+                });
+            },
+            onError: function(err) {
+                console.error('PayPal error:', err);
+                alert('Oops! Something went wrong. Please try again!');
+            },
+            style: {
+                layout: 'vertical',
+                color: 'blue',
+                shape: 'rect',
+                label: 'donate',
+                height: 45
+            }
+        }).render('#paypal-donate-button-container');
+
+        // Apple Pay Button
+        paypal.Buttons({
+            fundingSource: paypal.FUNDING.APPLEPAY,
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        description: 'Support TheGhostPacket - Cybersecurity Education',
+                        amount: { value: selectedAmount.toFixed(2) }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert(`Thank you so much, ${details.payer.name.given_name}!`);
+                });
+            },
+            onError: function(err) {
+                alert('Oops! Something went wrong with Apple Pay. Please try regular PayPal!');
+            }
+        }).render('#paypal-donate-button-container');
+    }
+
+    // Custom amount handling
+    document.addEventListener('DOMContentLoaded', function() {
+        const customInput = document.getElementById('customAmount');
+        if (customInput) {
+            customInput.addEventListener('input', function() {
+                if (this.value && this.value > 0) {
+                    selectedAmount = parseFloat(this.value);
+                    document.querySelectorAll('.amount-btn').forEach(btn => btn.classList.remove('selected'));
+                    renderPayPalButton();
+                }
+            });
+        }
+
+        // Initialize PayPal button
+        renderPayPalButton();
+    });
+    </script>
+
+</body>
+</html>
+
+  <!-- Support Section -->
+  <section id="support" class="section" style="background: rgba(59, 130, 246, 0.05);">
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Support My Journey</h2>
+        <p class="section-subtitle">Help me continue building cybersecurity education tools and resources</p>
+      </header>
+
+      <div class="card" style="max-width: 700px; margin: 0 auto; text-align: center; padding: 3rem 2rem;">
+        <span style="font-size: 4rem; display: block; margin-bottom: 1rem;">☕</span>
+        <h3 style="margin-bottom: 1rem; color: #38bdf8; font-size: 1.8rem;">Buy Me a Coffee</h3>
+        <p style="color: #9ca3af; margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.8;">
+          If you find my cybersecurity projects helpful or want to support my learning journey, consider buying me a coffee!
+        </p>
+        <p style="color: #9ca3af; font-size: 0.95rem; margin-bottom: 2rem;">
+          🎓 Currently studying for CompTIA Security+ certification<br>
+          🛡️ Building hands-on cybersecurity training platforms<br>
+          🚀 Creating educational security games and tools
+        </p>
+
+        <div class="donation-amount-grid">
+          <button class="amount-btn" onclick="selectAmount(3)">$3<br><small>☕</small></button>
+          <button class="amount-btn selected" onclick="selectAmount(5)">$5<br><small>☕☕</small></button>
+          <button class="amount-btn" onclick="selectAmount(10)">$10<br><small>🎉</small></button>
+          <button class="amount-btn" onclick="selectAmount(25)">$25<br><small>🚀</small></button>
+        </div>
+
+        <div style="margin: 1.5rem 0;">
+          <label style="display: block; margin-bottom: 0.5rem; color: #9ca3af; font-size: 0.9rem;">Or enter custom amount</label>
+          <input type="number" id="customAmount" class="custom-amount-input" placeholder="Enter amount" min="1" step="0.01">
+        </div>
+
+        <div id="paypal-donate-button-container" style="max-width: 400px; margin: 2rem auto;"></div>
+
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(148, 163, 184, 0.3);">
+          <p style="color: #9ca3af; font-size: 0.9rem; margin-bottom: 1rem;">
+            <i class="fas fa-heart" style="color: #dc2626;"></i> Thank you for your support!
+          </p>
+          <p style="color: #9ca3af; font-size: 0.85rem;">
+            Your contributions help cover hosting costs, certification expenses, and lab equipment for security research.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
